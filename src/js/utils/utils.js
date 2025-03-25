@@ -31,11 +31,7 @@ export const initWatchTimer = () => {
           sec = '0' + sec;
         }
 
-        el.innerHTML = `
-      ${hr + ' : '}
-      ${min + ' : '}
-      ${sec}
-    `;
+        el.innerHTML = `${hr + ':'}${min + ':'}${sec}`;
       };
 
       setInterval(init, 500);

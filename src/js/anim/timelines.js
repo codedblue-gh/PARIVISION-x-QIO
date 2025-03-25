@@ -1,6 +1,7 @@
 import gsap from 'gsap';
 import { initItemsAnim, itemsTl } from './homepage';
 import {
+  getCurSection,
   ACTIVE_CLASS,
   ANIMATING_CLASS,
   INIT_SCROLL_CLASS,
@@ -8,6 +9,7 @@ import {
   observer,
   resetActiveSection,
   sections,
+  leaders,
 } from './homepage-scroll';
 import videojs from 'video.js';
 import { defaults } from 'lodash';
@@ -20,8 +22,13 @@ const preloaderVideo = videojs.getPlayer(
 const video1 = document.getElementById('homepage-video-1');
 // const video1r = document.getElementById('homepage-video-1-r');
 // const video2 = document.getElementById('homepage-video-2');
-const player1 = videojs.getPlayer(video1.querySelector('video'));
-// const player1r = videojs.getPlayer(video1r.querySelector('video'));
+const player1 = video1
+  ? videojs.getPlayer(video1.querySelector('video'))
+  : null;
+
+// const player1r = video1r
+//   ? videojs.getPlayer(video1r.querySelector('video'))
+//   : null;
 // const player2 = videojs.getPlayer(video2.querySelector('video'));
 const table = document.querySelector('.homepage-table');
 const sectionMain = document.querySelector('[data-section="main"]');
@@ -164,6 +171,7 @@ tlMain
     ...clearedProps,
     onStart: () => {
       gsap.timeline().to(video1, { opacity: 0 });
+      gsap.to('.header__lang', { autoAlpha: 1 });
     },
     onComplete: () => {
       if (!document.querySelector(`.${INIT_SCROLL_CLASS}`)) {
@@ -181,7 +189,12 @@ tlMain
   })
   .to('html', { '--opacity': 1 }, 0)
   .to('body', { '--opacity': 1 }, 0);
-tlMainLeave.to('.hero__container', blurTopProps);
+tlMainLeave.to('.hero__container', {
+  ...blurTopProps,
+  onComplete: () => {
+    gsap.to('.header__lang', { autoAlpha: 0 });
+  },
+});
 
 export const tlAbout = gsap.timeline({
   ...onDefaults,
@@ -191,13 +204,13 @@ export const tlAboutLeave = gsap.timeline({
   ...offDefaults,
   id: `${sections.indexOf(sectionAbout)}-off`,
 });
-let isPlayed = 0;
 tlAbout
   .to('.about__heading-txt:first-child, .about__heading-txt:nth-child(2)', {
     duration: 1,
     opacity: 1,
     translateY: 0,
     onStart: () => {
+      gsap.to('html', { '--autoAlpha': 1, delay: 0.5 });
       gsap.timeline().to(
         video1,
         {
@@ -251,22 +264,10 @@ tlAbout
 tlAboutLeave.to('.about__heading, .about__text-wrap', {
   ...blurTopProps,
   onStart: () => {
-    isPlayed += 1;
-    if (player1 && isPlayed === 1) {
-      player1.currentTime(0), player1.play();
-    }
+    gsap.to('html', { '--autoAlpha': 0 });
 
-    if (observer.deltaY > 0) {
-      // player1 && player1.play();
-    } else {
-      // gsap.timeline().to(
-      //   '#homepage-video-1, #homepage-video-1-r',
-      //   {
-      //     opacity: 0,
-      //     delay: 1,
-      //   },
-      //   0
-      // );
+    if (player1 && getCurSection() && getCurSection() === 'team') {
+      player1.play();
     }
   },
 });
@@ -304,23 +305,22 @@ tlTeamLeave.to('.team__heading span', blurTopProps).to(
   {
     ...opacityTopProps,
     onStart: () => {
-      if (observer.deltaY < 0) {
-        // gsap.set('#homepage-video-1-r', { opacity: 1 });
-        // gsap.set('#homepage-video-1', { opacity: 0 });
-        // player1r && player1r.playbackRate(1.5);
-        // player1r && player1r.play();
-      } else {
-        // gsap.set('#homepage-video-2', { opacity: 1 });
-
-        if (!document.querySelector('.leaders__group._is-visible')) {
-          // gsap.set('#homepage-video-1, #homepage-video-1-r', { opacity: 0 });
-          // player2 && player2.play();
-        } else {
-          // player2.currentTime(player2.duration());
-          // gsap
-          //   .timeline()
-          //   .to('#homepage-video-1, #homepage-video-1-r', { opacity: 0 });
-        }
+      if (getCurSection() && getCurSection() === 'about') {
+        gsap.to('#homepage-video-1', {
+          opacity: 0,
+          onComplete: () => {
+            if (player1) {
+              player1.currentTime(0);
+              player1.pause();
+            }
+          },
+        });
+        gsap.to('#homepage-video-1', { opacity: 1, delay: 1 });
+      }
+    },
+    onComplete: () => {
+      if (getCurSection() && getCurSection() === 'about') {
+        gsap.to('html', { '--autoAlpha': 1 });
       }
     },
   },
@@ -339,17 +339,24 @@ tlLeaders
   .to('.leaders__container, .leaders__group_center', {
     ...clearedProps,
     onStart: () => {
+      const cnd =
+        window.innerWidth <= 784 &&
+        !leaders[leaders.length - 1].classList.contains('_is-visible');
+
       document.documentElement.classList.add('leaders-screen');
 
       gsap.timeline().to(video1, { opacity: 0 }, 0);
 
-      // gsap.timeline().to('#homepage-video-2', { opacity: 1, duration: 1.5 });
-      // player2 && player2.currentTime(0), player2.play();
+      if (cnd) {
+        document
+          .querySelector('.leaders__group_center')
+          .classList.add('_is-visible');
+      }
 
       table && (table.dataset.tableSection = 'leaders');
 
       setTimeout(() => {
-        if (!document.querySelector('.leaders__group._is-visible')) {
+        if (cnd || !document.querySelector('.leaders__group._is-visible')) {
           document
             .querySelector('.leaders__group-heading_main')
             .classList.add('_is-active');

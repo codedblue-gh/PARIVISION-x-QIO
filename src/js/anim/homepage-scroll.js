@@ -13,10 +13,14 @@ export const ANIMATING_CLASS = '_is-animating';
 export const ACTIVE_CLASS = '_is-active';
 export const INIT_SCROLL_CLASS = '_init-scroll';
 
+export const getCurSection = () => {
+  return document.documentElement.dataset.currentSection;
+};
+
 let yPos = 0;
 let leadersIdx = 0;
 
-const leaders = gsap.utils.toArray('.leaders__group');
+export const leaders = gsap.utils.toArray('.leaders__group');
 const table = document.querySelector('.homepage-table');
 const heading = document.getElementById('section-heading');
 export const sections = gsap.utils.toArray('[data-section]');
@@ -38,6 +42,8 @@ const scroll = (self, i, deltaY) => {
     const prev = sections[i - 1];
     const next = sections[i + 1];
     const target = deltaY === 1 ? next : prev;
+
+    document.documentElement.dataset.currentSection = target.dataset.section;
 
     resetActiveSection(target, deltaY);
   }

@@ -84,6 +84,12 @@
   &__txt {
     text-transform: uppercase;
 
+    @media (min-width: 49.01em) {
+      &._mobile-only {
+        display: none;
+      }
+    }
+
     @media (max-width: 49em) {
       line-height: 130%;
 

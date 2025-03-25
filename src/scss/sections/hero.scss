@@ -77,6 +77,8 @@
     grid-template-columns: 1fr 26.6rem;
 
     @media (max-width: 49em) {
+      transform: translateY(5rem);
+
       .hero__txt {
         max-width: 38.4rem;
       }

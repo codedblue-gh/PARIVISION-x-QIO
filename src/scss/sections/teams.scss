@@ -102,6 +102,26 @@
   // .teams__item
 
   &__item {
+    &:nth-child(1) {
+      svg {
+        width: 37rem;
+
+        @media (max-width: 49em) {
+          width: 64rem;
+        }
+      }
+    }
+    &:nth-child(3) {
+      svg {
+        height: 10rem;
+        width: 42.5rem;
+
+        @media (max-width: 49em) {
+          height: 13rem;
+          width: 58.5rem;
+        }
+      }
+    }
   }
 }
 
@@ -203,14 +223,14 @@
     transform-origin: center;
 
     svg {
-      width: 39rem;
+      width: 42rem;
 
       color: var(--c-bg);
 
       transition: color 0.5s ease-in-out;
 
       @media (max-width: 49em) {
-        width: 62rem;
+        width: 60rem;
       }
     }
   }

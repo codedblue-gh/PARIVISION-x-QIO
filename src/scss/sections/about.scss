@@ -140,6 +140,8 @@
   // }
 }
 #homepage-video-1 video {
+  mix-blend-mode: darken;
+
   @media (max-width: 49em) {
     object-position: center top;
   }
