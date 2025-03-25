@@ -43,7 +43,6 @@
   "dependencies": {
     "gsap": "^3.12.5",
     "inputmask": "^5.0.9",
-    "lenis": "^1.1.19",
     "swiper": "^11.2.1"
   }
 }

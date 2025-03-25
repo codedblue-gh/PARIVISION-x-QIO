@@ -145,9 +145,8 @@ tlPreloaderLeave.to('.preloader__video, #loader', {
     document.querySelector('[data-section]').classList.add(ACTIVE_CLASS);
     resetActiveSection(document.querySelector('[data-section]'));
 
-    setTimeout(() => {
       tlMain.play();
-    }, 300);
+
   },
   onComplete: () => {
     preloaderVideo && preloaderVideo.pause();
@@ -159,7 +158,7 @@ tlPreloaderLeave.to('.preloader__video, #loader', {
 export const tlMain = gsap.timeline({
   paused: true,
   defaults: {
-    duration: 0.3,
+    duration: window.innerWidth <= 784 ? 0.5 : 1,
     ease: 'circ.inOut',
   },
   id: `${sections.indexOf(sectionMain)}-on`,
@@ -172,8 +171,8 @@ tlMain
   .to('.hero__container', {
     ...clearedProps,
     onStart: () => {
-      gsap.timeline().to(video1, { opacity: 0, duration: 0.3 });
-      gsap.to('.header__lang', { autoAlpha: 1, duration: 0.3 });
+      gsap.timeline().to(video1, { opacity: 0 });
+      gsap.to('.header__lang', { autoAlpha: 1 });
     },
     onComplete: () => {
       if (!document.querySelector(`.${INIT_SCROLL_CLASS}`)) {
@@ -189,8 +188,8 @@ tlMain
       }
     },
   })
-  .to('html', { '--opacity': 1, duration: 0.3 }, 0)
-  .to('body', { '--opacity': 1, duration: 0.3 }, 0);
+  .to('html', { '--opacity': 1 }, 0)
+  .to('body', { '--opacity': 1 }, 0);
 tlMainLeave.to('.hero__container', {
   ...blurTopProps,
   onComplete: () => {
