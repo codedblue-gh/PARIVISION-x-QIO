@@ -94,6 +94,19 @@ const hideLoader = () => {
     });
   tlPreloaderLeave.play();
 };
+gsap.from('.preloader__progress', {
+  textContent: 0,
+  duration: 1,
+  snap: { textContent: 1 },
+  onComplete: () => {
+    if (document.querySelector('._page-loaded')) {
+      hideLoader();
+    } else {
+      window.addEventListener('load', hideLoader);
+    }
+  },
+});
+preloaderVideo && preloaderVideo.play();
 tlPreloader
   .to(
     'html',
@@ -115,23 +128,6 @@ tlPreloader
       '--y': 0,
       '--opacity': 1,
       '--blur': '0rem',
-      onStart: () => {
-        gsap.from('.preloader__progress', {
-          textContent: 0,
-          duration: 1,
-          snap: { textContent: 1 },
-          onComplete: () => {
-            if (document.querySelector('._page-loaded')) {
-              hideLoader();
-            } else {
-              window.addEventListener('load', hideLoader);
-            }
-          },
-        });
-      },
-      onComplete: () => {
-        preloaderVideo && preloaderVideo.play();
-      },
     },
     0.5
   );
