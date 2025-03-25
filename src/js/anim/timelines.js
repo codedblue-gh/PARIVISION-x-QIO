@@ -11,8 +11,6 @@ import {
   sections,
   leaders,
 } from './homepage-scroll';
-import videojs from 'video.js';
-import { defaults } from 'lodash';
 
 export const duration = 1.5;
 

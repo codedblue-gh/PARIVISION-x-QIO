@@ -1,4 +1,4 @@
-import videojs from 'video.js';
+
 
 const videos = document.querySelectorAll('[data-videojs]');
 videos.forEach(video => {
