@@ -10,18 +10,18 @@
   font-weight: 500;
   src: url(@fonts/suisseintl-medium.woff2);
 }
-// @font-face {
-//   font-family: 'Heading Now';
-//   font-style: normal;
-//   font-weight: 400;
-//   src: url(@fonts/HeadingNow94.woff2);
-// }
-// @font-face {
-//   font-family: 'Heading Now';
-//   font-style: italic;
-//   font-weight: 800;
-//   src: url(@fonts/HeadingNowTrial-47ExtraboldItalic.woff2);
-// }
+@font-face {
+  font-family: 'Heading Now';
+  font-style: normal;
+  font-weight: 400;
+  src: url(@fonts/HeadingNow94.woff2);
+}
+@font-face {
+  font-family: 'Heading Now';
+  font-style: italic;
+  font-weight: 800;
+  src: url(@fonts/HeadingNowTrial-47ExtraboldItalic.woff2);
+}
 @font-face {
   font-family: 'Aeonik Mono';
   font-style: normal;
