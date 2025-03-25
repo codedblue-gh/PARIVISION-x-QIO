@@ -1,6 +1,121 @@
 <!DOCTYPE html>
 <html lang="ru" class="set-homepage-css">
-  @@include('html/_head.htm',{ "title":"HOMEPAGE" })
+  <head>
+    <title>HOMEPAGE</title>
+    <meta charset="UTF-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <!-- <style>body{opacity: 0;}</style> -->
+    <link
+      rel="preload"
+      href="css/style.css"
+      as="style"
+      onload="this.rel='stylesheet'" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <!-- <meta name="robots" content="noindex, nofollow"> -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+    <style>
+      [data-section],
+      .preloader {
+        position: fixed;
+        inset: 0;
+
+        display: flex;
+        flex-direction: column;
+        height: 100dvh;
+
+        .container {
+          flex: 1 1 auto;
+        }
+      }
+
+      [data-section] {
+        z-index: 3;
+        &:not(._is-active) {
+          opacity: 0;
+          visibility: hidden;
+          pointer-events: none;
+        }
+      }
+            .homepage {
+        height: 100dvh;
+
+        overflow: hidden;
+
+        --y: 0;
+        --opacity: 0;
+        --autoAlpha: 0;
+
+        &::after {
+          content: '';
+
+          position: fixed;
+          inset: 0;
+
+          background-color: #51c8af;
+
+          opacity: var(--autoAlpha);
+        }
+
+        &::before {
+          content: '';
+
+          position: fixed;
+          z-index: 2;
+          inset: 0;
+
+          background-image: url(@img/vectors/bg.svg);
+          background-position: center var(--y);
+          background-size: contain;
+          background-repeat: repeat;
+
+          opacity: var(--opacity);
+
+          @media (max-width: 49em) {
+            background-image: url(@img/vectors/bg-m.svg);
+          }
+        }
+
+        &:not(._init-scroll) {
+          main::before,
+          main::after {
+            opacity: 0;
+          }
+        }
+
+        main {
+          height: 100dvh;
+
+          &::before,
+          &::after {
+            content: '';
+
+            position: fixed;
+            z-index: 2;
+            left: 0;
+
+            width: 100%;
+            height: 12.1rem;
+
+            background: linear-gradient(360deg, rgba(0, 0, 0, 0) 0%, #000000 78.16%);
+            filter: blur(1.35rem);
+
+            transition: opacity 0.5s ease-in-out;
+          }
+
+          &::before {
+            top: -3.3rem;
+          }
+
+          &::after {
+            bottom: -0.981rem;
+
+            transform: rotate(-180deg);
+          }
+        }
+    </style>
+  </head>
   <body class="">
     @@include('html/_header.htm',{})
     <div class="capsule">
