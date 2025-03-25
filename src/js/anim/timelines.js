@@ -57,7 +57,7 @@ const opacityTopProps = {
 
 const onDefaults = {
   defaults: {
-    duration: 1.5,
+    duration: 1,
     ease: 'circ.inOut',
   },
   paused: true,
@@ -77,10 +77,17 @@ const offDefaults = {
 
 export const tlPreloader = gsap.timeline({
   paused: true,
-  defaults: onDefaults.defaults,
+  defaults: {
+    duration: 0.3,
+    ease: 'circ.inOut',
+  },
 });
 export const tlPreloaderLeave = gsap.timeline({
-  ...offDefaults,
+  paused: true,
+  defaults: {
+    duration: 0.3,
+    ease: 'circ.inOut',
+  },
 });
 const hideLoader = () => {
   document.querySelectorAll('.preloader__progress') &&
@@ -94,7 +101,6 @@ tlPreloader
     'html',
     {
       '--opacity': 1,
-      duration,
     },
     0
   )
@@ -102,7 +108,6 @@ tlPreloader
     '.preloader',
     {
       opacity: 1,
-      duration,
     },
     0
   )
@@ -112,11 +117,10 @@ tlPreloader
       '--y': 0,
       '--opacity': 1,
       '--blur': '0rem',
-      duration,
       onStart: () => {
         gsap.from('.preloader__progress', {
           textContent: 0,
-          duration: 3,
+          duration: 1,
           snap: { textContent: 1 },
           onComplete: () => {
             if (document.querySelector('._page-loaded')) {
@@ -135,21 +139,21 @@ tlPreloader
   );
 tlPreloaderLeave.to('.preloader__video, #loader', {
   opacity: 0,
-  duration: 0.5,
   onStart: () => {
-    gsap.to('.homepage-table, .header', { opacity: 1 });
+    gsap.to('.homepage-table, .header', { opacity: 1, duration: 0.3 });
     gsap.to('.homepage-table, .header', {
       filter: 'blur(0rem)',
-      delay: 0.5,
-      onComplete: () => {
-        gsap.to('.header__heading', { opacity: 1 });
-
-        document.querySelector('[data-section]').classList.add(ACTIVE_CLASS);
-        resetActiveSection(document.querySelector('[data-section]'));
-
-        tlMain.play();
-      },
+      duration: 0.3,
+      delay: 0.1,
     });
+    gsap.to('.header__heading', { opacity: 1, duration: 0.3 });
+
+    document.querySelector('[data-section]').classList.add(ACTIVE_CLASS);
+    resetActiveSection(document.querySelector('[data-section]'));
+
+    setTimeout(() => {
+      tlMain.play();
+    }, 300);
   },
   onComplete: () => {
     preloaderVideo && preloaderVideo.pause();
@@ -159,7 +163,11 @@ tlPreloaderLeave.to('.preloader__video, #loader', {
 });
 
 export const tlMain = gsap.timeline({
-  ...onDefaults,
+  paused: true,
+  defaults: {
+    duration: 0.3,
+    ease: 'circ.inOut',
+  },
   id: `${sections.indexOf(sectionMain)}-on`,
 });
 export const tlMainLeave = gsap.timeline({
@@ -170,8 +178,8 @@ tlMain
   .to('.hero__container', {
     ...clearedProps,
     onStart: () => {
-      gsap.timeline().to(video1, { opacity: 0 });
-      gsap.to('.header__lang', { autoAlpha: 1 });
+      gsap.timeline().to(video1, { opacity: 0, duration: 0.3 });
+      gsap.to('.header__lang', { autoAlpha: 1, duration: 0.3 });
     },
     onComplete: () => {
       if (!document.querySelector(`.${INIT_SCROLL_CLASS}`)) {
@@ -187,8 +195,8 @@ tlMain
       }
     },
   })
-  .to('html', { '--opacity': 1 }, 0)
-  .to('body', { '--opacity': 1 }, 0);
+  .to('html', { '--opacity': 1, duration: 0.3 }, 0)
+  .to('body', { '--opacity': 1, duration: 0.3 }, 0);
 tlMainLeave.to('.hero__container', {
   ...blurTopProps,
   onComplete: () => {
