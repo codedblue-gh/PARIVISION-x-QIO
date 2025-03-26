@@ -151,13 +151,22 @@ export const observer = Observer.create({
 });
 observer.disable();
 
-export const resetActiveSection = (section, deltaY = -1) => {
+export const resetActiveSection = (
+  section,
+  deltaY = -1,
+  prevIndex = 'unset'
+) => {
   const bullets = gsap.utils.toArray('.homepage-table__bullet');
 
   if (section) {
     const curIdx = sections.indexOf(section);
     const curBullet = bullets[curIdx];
-    const prevIdx = deltaY === 1 ? curIdx - 1 : curIdx + 1;
+    const prevIdx =
+      prevIndex === 'unset'
+        ? deltaY === 1
+          ? curIdx - 1
+          : curIdx + 1
+        : prevIndex;
 
     const transition = prevTl => {
       const tl = timelines.filter(tl => tl.vars.id === `${curIdx}-on`)[0];
@@ -173,7 +182,7 @@ export const resetActiveSection = (section, deltaY = -1) => {
     // if (section.dataset.section !== 'leaders') {
     if (prevIdx >= 0 && document.querySelector(`.${INIT_SCROLL_CLASS}`)) {
       const curTl = timelines.filter(tl => tl.vars.id === `${prevIdx}-off`)[0];
-
+      console.log(prevIdx, prevIndex);
       curTl.restart();
       curTl.then(() => {
         transition(curTl);

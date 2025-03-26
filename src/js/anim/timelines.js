@@ -13,8 +13,8 @@ import {
 
 export const duration = 1.5;
 
-const video1 = document.getElementById('homepage-video-1');
-const player1 = video1.querySelector('video');
+export const video1 = document.getElementById('homepage-video-1');
+export const player1 = video1.querySelector('video');
 const table = document.querySelector('.homepage-table');
 const sectionMain = document.querySelector('[data-section="main"]');
 const sectionAbout = document.querySelector('[data-section="about"]');
@@ -42,7 +42,7 @@ const opacityTopProps = {
 
 const onDefaults = {
   defaults: {
-    duration: 1.5,
+    duration: 1,
     ease: 'circ.inOut',
   },
   paused: true,
@@ -137,6 +137,7 @@ tlMainLeave.to('.hero__container', {
   ...blurTopProps,
   onComplete: () => {
     gsap.to('.header__lang', { autoAlpha: 0 });
+    gsap.to('body', { '--opacity': 0 });
   },
 });
 
@@ -210,8 +211,12 @@ tlAboutLeave.to('.about__heading, .about__text-wrap', {
   onStart: () => {
     gsap.to('html', { '--autoAlpha': 0 });
 
-    if (player1 && getCurSection() && getCurSection() === 'team') {
-      player1.play();
+    if (player1 && getCurSection()) {
+      if (getCurSection() === 'team') {
+        player1.play();
+      } else {
+        gsap.to(video1, { opacity: 0 });
+      }
     }
   },
 });
@@ -231,7 +236,9 @@ tlTeam
     duration: 1,
     stagger: 0.1,
     onStart: () => {
-      // player2 && player2.currentTime(0);
+      if (player1 && player1.currentTime !== player1.duration) {
+        player1.play();
+      }
 
       gsap.timeline().to(video1, { opacity: 1 }, 0);
 
@@ -249,16 +256,16 @@ tlTeamLeave.to('.team__heading span', blurTopProps).to(
   {
     ...opacityTopProps,
     onStart: () => {
+      gsap.to('#homepage-video-1', {
+        opacity: 0,
+        onComplete: () => {
+          if (player1) {
+            player1.currentTime = 0;
+            player1.pause();
+          }
+        },
+      });
       if (getCurSection() && getCurSection() === 'about') {
-        gsap.to('#homepage-video-1', {
-          opacity: 0,
-          onComplete: () => {
-            if (player1) {
-              player1.currentTime = 0;
-              player1.pause();
-            }
-          },
-        });
         gsap.to('#homepage-video-1', { opacity: 1, delay: 1 });
       }
     },
