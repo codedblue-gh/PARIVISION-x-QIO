@@ -1,8 +1,5 @@
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/all';
-import { initHomepageAnim, itemsTl } from '../anim/homepage';
+import { itemsTl } from '../anim/homepage';
 import { initWatchTimer, isTouchDevice } from './utils';
-import { sections } from '../anim/homepage-scroll';
 import { lenis } from '../lib/lenis';
 import { checkScreenSize, initHomepageBullets } from './homepage';
 import { tlPreloader } from '../anim/timelines';

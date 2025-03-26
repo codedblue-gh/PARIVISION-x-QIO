@@ -1,7 +1,3 @@
-
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/all';
-
 // Initialize Lenis
 export const lenis = new Lenis({
   duration: 2,

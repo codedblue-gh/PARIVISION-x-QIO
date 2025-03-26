@@ -1,9 +1,6 @@
-import gsap from 'gsap';
-import { Observer } from 'gsap/all';
 import { isTouchDevice, removeClasses } from '../utils/utils';
-import { timelines, duration, tlMain, tlLinksLeave } from './timelines';
+import { timelines, duration } from './timelines';
 import { headings, initLeadersScreenObserver } from './homepage';
-import { md } from '../utils/script';
 
 gsap.registerPlugin(Observer);
 

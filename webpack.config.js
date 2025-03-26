@@ -158,6 +158,7 @@ module.exports = {
       // js
       new TerserPlugin({
         extractComments: false,
+        test: /\.js(\?.*)?$/i,
       }),
 
       // images

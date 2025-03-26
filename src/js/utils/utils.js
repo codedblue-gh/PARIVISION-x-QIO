@@ -1,5 +1,3 @@
-import gsap from 'gsap';
-
 export const randomNumber = () => {
   Math.floor(Math.random() * (max - min + 1)) + min;
 };

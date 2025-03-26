@@ -1,9 +1,5 @@
 import '../scss/style.scss';
 
-import './lib/video.js';
-
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/all';
 gsap.registerPlugin(ScrollTrigger);
 
 import './anim/timelines.js';

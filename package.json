@@ -41,8 +41,6 @@
     "webpack-dev-server": "^4.15.1"
   },
   "dependencies": {
-    "gsap": "^3.12.5",
-    "inputmask": "^5.0.9",
-    "swiper": "^11.2.1"
+    "inputmask": "^5.0.9"
   }
 }

@@ -1,5 +1,3 @@
-import Swiper from 'swiper';
-import { Navigation, Pagination } from 'swiper/modules';
 import { remToPx } from '../utils/utils';
 import { mm } from '../utils/script';
 
@@ -7,7 +5,6 @@ window.addEventListener('load', function () {
   if (document.querySelector('.news__slider')) {
     mm.add('(min-width: 49em)', () => {
       const slider = new Swiper('.news__slider', {
-        modules: [Navigation, Pagination],
         slidesPerView: 'auto',
         loop: true,
         spaceBetween: remToPx(7.1),

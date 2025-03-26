@@ -1,5 +1,5 @@
 import Inputmask from 'inputmask';
-import { addError, removeError } from '../utils/forms';
+import { addError } from '../utils/forms';
 
 // --------------------------------------------------------------------------
 

@@ -1,4 +1,3 @@
-import gsap from 'gsap';
 import { isTouch } from '../utils/script';
 import { removeClasses } from '../utils/utils';
 

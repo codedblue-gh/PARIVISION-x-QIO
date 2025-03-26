@@ -7,11 +7,7 @@
     justify-content: center;
 
     .set-homepage-css & {
-      @media (min-width: 49.01em) {
-        opacity: 0;
-        filter: blur(1.5rem);
-        transform: translateY(30%);
-      }
+      @extend %ob-t;
     }
 
     @media (min-width: 49.01em) {

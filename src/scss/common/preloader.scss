@@ -1,18 +1,16 @@
 .preloader {
-  --opacity: 0;
-  --blur: 1rem;
-  --y: 9rem;
-
-  .set-homepage-css & {
-    @extend %opacity;
-  }
-
   // .preloader__container
 
   &__container {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
+    opacity: 0;
+    filter: blur(1rem);
+    transform: translateY(9rem);
+    transition: opacity 0.5s ease-in-out, filter 0.5s ease-in-out,
+      transform 0.5s ease-in-out;
 
     &.container {
       padding-top: 3.9rem;
@@ -28,15 +26,6 @@
   }
 
   // .preloader__row
-
-  &__row,
-  &__video .preloader__progress {
-    .set-homepage-css & {
-      opacity: var(--opacity);
-      filter: blur(var(--blur));
-      transform: translateY(var(--y));
-    }
-  }
 
   &__row {
     display: grid;
@@ -67,8 +56,6 @@
     }
 
     &::before {
-      content: '';
-
       position: absolute;
       left: 0;
 
@@ -142,20 +129,23 @@
     z-index: -1;
     inset: 0;
 
-    [data-videojs] {
+    video {
+      position: absolute;
       top: 50%;
       left: 53%;
 
       max-height: 108rem;
       max-width: 192rem;
 
+      object-fit: cover;
+
       transform: scale(1.05) translate(-50%, -50%);
 
       @media (max-width: 49em) {
         left: 50%;
 
-        max-height: 87rem;
-        max-width: 75rem;
+        max-height: 120rem;
+        max-width: 155rem;
 
         transform: translate(-50%, -50%);
       }

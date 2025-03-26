@@ -1,4 +1,3 @@
-import gsap from 'gsap';
 import { initItemsAnim, itemsTl } from './homepage';
 import {
   getCurSection,
@@ -14,20 +13,8 @@ import {
 
 export const duration = 1.5;
 
-const preloaderVideo = videojs.getPlayer(
-  document.querySelector('.preloader [data-videojs]')
-);
 const video1 = document.getElementById('homepage-video-1');
-// const video1r = document.getElementById('homepage-video-1-r');
-// const video2 = document.getElementById('homepage-video-2');
-const player1 = video1
-  ? videojs.getPlayer(video1.querySelector('video'))
-  : null;
-
-// const player1r = video1r
-//   ? videojs.getPlayer(video1r.querySelector('video'))
-//   : null;
-// const player2 = videojs.getPlayer(video2.querySelector('video'));
+const player1 = video1.querySelector('video');
 const table = document.querySelector('.homepage-table');
 const sectionMain = document.querySelector('[data-section="main"]');
 const sectionAbout = document.querySelector('[data-section="about"]');
@@ -55,7 +42,7 @@ const opacityTopProps = {
 
 const onDefaults = {
   defaults: {
-    duration: 1,
+    duration: 1.5,
     ease: 'circ.inOut',
   },
   paused: true,
@@ -75,17 +62,10 @@ const offDefaults = {
 
 export const tlPreloader = gsap.timeline({
   paused: true,
-  defaults: {
-    duration: 0.3,
-    ease: 'circ.inOut',
-  },
+  defaults: onDefaults.defaults,
 });
 export const tlPreloaderLeave = gsap.timeline({
-  paused: true,
-  defaults: {
-    duration: 0.3,
-    ease: 'circ.inOut',
-  },
+  ...offDefaults,
 });
 const hideLoader = () => {
   document.querySelectorAll('.preloader__progress') &&
@@ -94,73 +74,36 @@ const hideLoader = () => {
     });
   tlPreloaderLeave.play();
 };
-gsap.from('.preloader__progress', {
-  textContent: 0,
-  duration: 1,
-  snap: { textContent: 1 },
-  onComplete: () => {
-    if (document.querySelector('._page-loaded')) {
-      hideLoader();
-    } else {
-      window.addEventListener('load', hideLoader);
-    }
-  },
-});
-preloaderVideo && preloaderVideo.play();
-tlPreloader
-  .to(
-    'html',
-    {
-      '--opacity': 1,
-    },
-    0
-  )
-  .to(
-    '.preloader',
-    {
-      opacity: 1,
-    },
-    0
-  )
-  .to(
-    '.preloader',
-    {
-      '--y': 0,
-      '--opacity': 1,
-      '--blur': '0rem',
-    },
-    0.5
-  );
+
+if (document.querySelector('._page-loaded')) {
+  hideLoader();
+} else {
+  window.addEventListener('load', hideLoader);
+}
+
 tlPreloaderLeave.to('.preloader__video, #loader', {
   opacity: 0,
+  duration: 0.5,
   onStart: () => {
-    gsap.to('.homepage-table, .header', { opacity: 1, duration: 0.3 });
+    gsap.to('.homepage-table, .header', { opacity: 1 });
     gsap.to('.homepage-table, .header', {
       filter: 'blur(0rem)',
-      duration: 0.3,
-      delay: 0.1,
+      delay: 0.5,
     });
-    gsap.to('.header__heading', { opacity: 1, duration: 0.3 });
+    gsap.to('.header__heading', { opacity: 1 });
 
     document.querySelector('[data-section]').classList.add(ACTIVE_CLASS);
     resetActiveSection(document.querySelector('[data-section]'));
 
-      tlMain.play();
-
+    tlMain.play();
   },
   onComplete: () => {
-    preloaderVideo && preloaderVideo.pause();
-
-    document.getElementById('loader').style.display = 'none';
+    document.getElementById('loader').remove();
   },
 });
 
 export const tlMain = gsap.timeline({
-  paused: true,
-  defaults: {
-    duration: window.innerWidth <= 784 ? 0.5 : 1,
-    ease: 'circ.inOut',
-  },
+  ...onDefaults,
   id: `${sections.indexOf(sectionMain)}-on`,
 });
 export const tlMainLeave = gsap.timeline({
@@ -311,7 +254,7 @@ tlTeamLeave.to('.team__heading span', blurTopProps).to(
           opacity: 0,
           onComplete: () => {
             if (player1) {
-              player1.currentTime(0);
+              player1.currentTime = 0;
               player1.pause();
             }
           },

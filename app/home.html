@@ -1,86 +1,51 @@
 <!DOCTYPE html>
-<html lang="ru" class="set-homepage-css homepage">
+<html lang="ru" class="set-homepage-css">
 
 <head>
 	<title>HOMEPAGE</title>
 	<meta charset="UTF-8" />
 	<meta name="format-detection" content="telephone=no" />
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="preload" href="css/style.css" as="style" onload="this.rel='stylesheet'" />
-	<link rel="preload" href="https://unpkg.com/lenis@1.2.3/dist/lenis.css" as="style" onload="this.rel='stylesheet'">
+	<!-- <link rel="stylesheet" href="css/style.css" /> -->
 	<link rel="shortcut icon" href="favicon.ico" />
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
-	<script defer src="https://unpkg.com/lenis@1.2.3/dist/lenis.min.js"></script>
-	<script defer src="
-https://cdn.jsdelivr.net/npm/video.js@8.22.0/dist/video.min.js
-"></script>
+
+	<!-- critical js for HOMEPAGE only -->
+	<script>
+		document.fonts.ready.then(function() {
+				const e = document.getElementById('loader-time');
+				if (e) {
+					setInterval(function() {
+						const n = new Date();
+						let t = n.getHours(),
+							o = n.getMinutes(),
+							l = n.getSeconds();
+						t < 10 && (t = '0' + t),
+							o < 10 && (o = '0' + o),
+							l < 10 && (l = '0' + l),
+							(e.innerHTML = `${t + ':'}${o + ':'}${l}`);
+					}, 500);
+				}
+				const n = document.querySelectorAll('.preloader__progress');
+				if (n.length) {
+					for (let e = 0; e < n.length; e++) {
+						const t = n[e];
+						let o = 0,
+							l = setInterval(function() {
+								(t.innerHTML = ++o), o >= 99 && clearInterval(l);
+							}, 10);
+					}
+				}
+			}),
+			(document.fonts.onloadingdone = function(e) {
+				document.documentElement.classList.add('_fonts-loaded');
+			});
+	</script>
+
+	<!-- critical css for HOMEPAGE only  -->
 	<style>
-		.txt-s {
-			font: var(--txt-s);
-			letter-spacing: 0.1rem;
-		}
-
-		.txt-xs {
-			font: var(--txt-xs);
-		}
-
-		.h-x {
-			font: var(--txt-x);
-			letter-spacing: 0.05rem;
-			text-transform: uppercase;
-		}
-
-		.screen-heading {
-			font: var(--h-x);
-			white-space: nowrap;
-			letter-spacing: 0.1rem;
-		}
-
-		.screen-txt {
-			font: var(--txt-s);
-			line-height: 133%;
-
-			opacity: 0.7;
-		}
-
-		[data-section],
-		.preloader {
-			position: fixed;
-			inset: 0;
-
-			display: flex;
-			flex-direction: column;
-			height: 100dvh;
-		}
-
-		[data-section] .container,
-		.preloader .container {
-			flex: 1 1 auto;
-		}
-
-		[data-section] {
-			z-index: 3;
-		}
-
-		[data-section]:not(._is-active) {
-			opacity: 0;
-			visibility: hidden;
-			pointer-events: none;
-		}
-
-		.homepage::after {
-			content: '';
-
-			position: fixed;
-			inset: 0;
-
-			background-color: #51c8af;
-
-			opacity: var(--autoAlpha);
-		}
-
-		.homepage::before {
+		html::before {
 			content: '';
 
 			position: fixed;
@@ -91,67 +56,39 @@ https://cdn.jsdelivr.net/npm/video.js@8.22.0/dist/video.min.js
 			background-position: center var(--y);
 			background-size: contain;
 			background-repeat: repeat;
+		}
 
-			opacity: var(--opacity);
+		._fonts-loaded .preloader__container {
+			opacity: 1;
+			filter: blur(0);
+			transform: translateY(0);
 		}
 
 		@media (max-width: 49em) {
-			.homepage::before {
+			html::before {
 				background-image: url(img/vectors/bg-m.svg);
 			}
 		}
-
-		.homepage:not(._init-scroll) main::before,
-		.homepage:not(._init-scroll) main::after {
-			opacity: 0;
-		}
-
-		.homepage main::before,
-		.homepage main::after {
-			content: '';
-
-			position: fixed;
-			z-index: 2;
-			left: 0;
-
-			width: 100%;
-			height: 12.1rem;
-
-			background: linear-gradient(360deg,
-					rgba(0, 0, 0, 0) 0%,
-					#000000 78.16%);
-			filter: blur(1.35rem);
-
-			transition: opacity 0.5s ease-in-out;
-		}
-
-		.homepage main::before {
-			top: -3.3rem;
-		}
-
-		.homepage main::after {
-			bottom: -0.981rem;
-
-			transform: rotate(-180deg);
-		}
-
-		.homepage main {
-			height: 100dvh;
-		}
-
-		.homepage {
-			height: 100dvh;
-
-			overflow: hidden;
-
-			--y: 0;
-			--opacity: 0;
-			--autoAlpha: 0;
-		}
 	</style>
+
+	<noscript>
+		<div style="
+          font-size: large;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 100dvw;
+          height: 100dvh;
+        ">
+			You don't have javascript enabled
+		</div>
+	</noscript>
+
+	<link rel="stylesheet" href="css/style.css" />
+	<link rel="preload" href="https://unpkg.com/lenis@1.2.3/dist/lenis.css" as="style" onload="this.rel='stylesheet'" />
 </head>
 
-<body class="">
+<body>
 	<header class="header">
 		<div class="header__container container">
 			<a href="/" class="header__logo"><img src="img/logo.svg" class="header__logo-img" alt="" /></a>
@@ -259,33 +196,28 @@ https://cdn.jsdelivr.net/npm/video.js@8.22.0/dist/video.min.js
 							<div class="leaders__group leaders__group_center">
 								<div class="leaders__images-wrap">
 									<div class="leaders__image-wrap">
-										<img src="img/content/2090007847.webp" class="leaders__image _desktop-only" alt="" />
-										<img src="img/content/209000e7848.webp" class="leaders__image _mobile-only" alt="" />
+										<img src="img/content/2090007847.webp" class="leaders__image" alt="" />
 									</div>
 								</div>
 							</div>
 							<div class="leaders__group">
 								<div class="leaders__images-wrap">
 									<div class="leaders__image-wrap">
-										<img src="img/content/20900078444e.webp" class="leaders__image _desktop-only" alt="" />
+										<img src="img/content/20900078444e.webp" class="leaders__image" alt="" />
 										<img src="img/content/20930007848.webp" class="leaders__image _mobile-only" alt="" />
-										<img src="img/content/20900078444.webp" class="leaders__image _mobile-only" alt="" />
 									</div>
 									<div class="leaders__image-wrap">
-										<img src="img/content/2131327190.webp" class="leaders__image _desktop-only" alt="" />
-										<img src="img/content/20900074845.webp" class="leaders__image _mobile-only" alt="" />
+										<img src="img/content/2131327190.webp" class="leaders__image" alt="" />
 									</div>
 								</div>
 							</div>
 							<div class="leaders__group">
 								<div class="leaders__images-wrap">
 									<div class="leaders__image-wrap">
-										<img src="img/content/2090007844.webp" class="leaders__image _desktop-only" alt="" />
-										<img src="img/content/209000e7848.webp" class="leaders__image _mobile-only" alt="" />
+										<img src="img/content/2090007844.webp" class="leaders__image" alt="" />
 									</div>
 									<div class="leaders__image-wrap">
-										<img src="img/content/2090007849.webp" class="leaders__image _desktop-only" alt="" />
-										<img src="img/content/2090007845.webp" class="leaders__image _mobile-only" alt="" />
+										<img src="img/content/2090007849.webp" class="leaders__image" alt="" />
 									</div>
 								</div>
 							</div>
@@ -609,26 +541,26 @@ https://cdn.jsdelivr.net/npm/video.js@8.22.0/dist/video.min.js
 			<div id="loader" class="preloader">
 				<div class="preloader__container container">
 					<div class="preloader__row">
-						<span class="preloader__progress">99</span>
+						<span class="preloader__progress">0</span>
 						<div class="homepage-table__info">
-							<span data-cur-time class="homepage-table__info-txt"></span>
+							<span id="loader-time" class="homepage-table__info-txt"></span>
 							<span class="homepage-table__info-txt">[UTC +4]</span>
 						</div>
-						<span class="preloader__progress">99</span>
+						<span class="preloader__progress">0</span>
 					</div>
 					<div class="preloader__video">
-						<span class="preloader__progress">99</span>
-						<video data-videojs src="files/Pre-comp8.mp4"></video>
-						<span class="preloader__progress">99</span>
+						<span class="preloader__progress">0</span>
+						<video id="loader-video" autoplay="autoplay" muted playisinline loop src="files/Pre-comp8.mp4"></video>
+						<span class="preloader__progress">0</span>
 					</div>
 					<div class="preloader__row">
-						<span class="preloader__progress">99</span>
+						<span class="preloader__progress">0</span>
 						<div class="preloader__loading frame-btn border">
 							<span class="frame-btn__inner border__inner">
 								<span class="frame-btn__txt">loading</span>
 							</span>
 						</div>
-						<span class="preloader__progress">99</span>
+						<span class="preloader__progress">0</span>
 					</div>
 				</div>
 			</div>
@@ -717,7 +649,7 @@ https://cdn.jsdelivr.net/npm/video.js@8.22.0/dist/video.min.js
 				</div>
 			</div>
 			<div id="homepage-video-1" style="opacity: 0" class="homepage-video">
-				<video src="files/ProfessionalModeMorphVideo.mp4" data-videojs></video>
+				<video src="files/ProfessionalModeMorphVideo.mp4" muted preload="metadata"></video>
 			</div>
 
 			<svg display="none">
@@ -812,7 +744,14 @@ https://cdn.jsdelivr.net/npm/video.js@8.22.0/dist/video.min.js
 
 		</div>
 	</div>
+
+	<script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+	<script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/Observer.min.js"></script>
+	<script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+	<script defer src="https://unpkg.com/lenis@1.2.3/dist/lenis.min.js"></script>
+	<script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 	<script defer src="js/app.js"></script>
+
 </body>
 
 </html>
