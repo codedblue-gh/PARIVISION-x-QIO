@@ -157,6 +157,8 @@
   &__info {
     padding-bottom: 0.6rem;
 
+    display: flex;
+
     [data-table-section] & {
       display: none;
     }
@@ -171,6 +173,12 @@
   &__info-txt {
     font: var(--txt-main);
     letter-spacing: -0.02rem;
+
+    @media (min-width: 49.01em) {
+      width: 6.2rem;
+      display: flex;
+      white-space: nowrap;
+    }
   }
 
   // .homepage-table__list
