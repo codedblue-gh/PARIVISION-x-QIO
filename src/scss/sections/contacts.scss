@@ -1,6 +1,10 @@
 .contacts {
   min-height: 100dvh;
 
+  @media (min-width: 49.01em) {
+    padding-bottom: 14.4rem;
+  }
+
   .border {
     &::before {
       top: -0.1rem;
