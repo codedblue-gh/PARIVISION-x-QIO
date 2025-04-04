@@ -1,4 +1,5 @@
-[data-section],
+.set-homepage-css [data-section],
+[data-section].fw,
 .preloader {
   position: fixed;
   inset: 0;
@@ -13,7 +14,11 @@
 }
 
 [data-section] {
+  position: relative;
   z-index: 3;
+}
+
+.set-homepage-css [data-section] {
   &:not(._is-active) {
     opacity: 0;
     visibility: hidden;
@@ -74,24 +79,11 @@
   }
 }
 
-.homepage {
-  height: 100dvh;
-
-  overflow: hidden;
-
-  --y: 0;
-  --opacity: 0;
-  --autoAlpha: 0;
-
-  &::after {
-    content: '';
-
-    position: fixed;
-    inset: 0;
-
-    background-color: #51c8af;
-
-    opacity: var(--autoAlpha);
+html {
+  &.homepage {
+    &::before {
+      opacity: var(--opacity);
+    }
   }
 
   &::before {
@@ -106,12 +98,19 @@
     background-size: contain;
     background-repeat: repeat;
 
-    opacity: var(--opacity);
-
     @media (max-width: 49em) {
       background-image: url(@img/vectors/bg-m.svg);
     }
   }
+}
+
+.homepage {
+  height: 100dvh;
+
+  overflow: hidden;
+
+  --y: 0;
+  --opacity: 0;
 
   &:not(._init-scroll) {
     main::before,
@@ -169,6 +168,94 @@
         background: url(@img/vectors/2131327189.svg) center / 100% auto
           no-repeat;
       }
+    }
+  }
+}
+
+main {
+  position: relative;
+}
+
+.lower-info {
+  position: absolute;
+  z-index: 10;
+  bottom: 2rem;
+  left: 0;
+
+  display: flex;
+  width: 100%;
+  height: 6.3rem;
+
+  @media (max-width: 49em) {
+    bottom: 5rem;
+
+    height: 18.3rem;
+
+    &::after {
+      content: '';
+
+      position: absolute;
+      bottom: -3.5rem;
+      left: -1.2rem;
+
+      width: 103%;
+      height: 1.3rem;
+
+      background: url(@img/vectors/2131327207.svg) center / cover repeat-x;
+    }
+  }
+
+  // .lower-info__btn
+
+  &__btn {
+    margin: auto;
+
+    &_fl.frame-btn {
+      .frame-btn__txt {
+        padding: 1.2rem 5rem;
+
+        @media (max-width: 49em) {
+          padding: 2.5rem 5rem;
+        }
+      }
+      .frame-btn__inner {
+        padding-top: 3rem;
+
+        @media (min-width: 49.01em) {
+          padding-top: 0;
+
+          height: 5.3rem;
+        }
+      }
+      .border {
+        width: 96%;
+        height: 80%;
+
+        transform: translate(-50%, -31%);
+
+        @media (min-width: 49.01em) {
+          width: 153.5%;
+          height: 131%;
+
+          transform: translate(-50%, -53%);
+        }
+      }
+    }
+
+    &_members.frame-btn {
+      .border {
+        width: 154.5%;
+        height: 107%;
+
+        @media (max-width: 49em) {
+          width: 96%;
+          height: 87%;
+        }
+      }
+    }
+
+    @media (min-width: 49.01em) {
+      margin: 0 auto;
     }
   }
 }

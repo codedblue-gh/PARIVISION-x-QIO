@@ -1,9 +1,11 @@
-<html style="background-color: #000000" lang="ru">
+<html style="background-color: #000000" lang="en">
   @@include('html/_head.htm',{ "title":"PARIVISION x QIO" })
 
   <body>
     <div
       style="
+        position: relative;
+        z-index: 100;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -125,15 +127,20 @@
         </svg>
       </div>
 
-      <ul style="display: flex; flex-wrap: wrap; width: 100%">
+      <ul style="display: flex; flex-wrap: wrap; width: 100%; gap: 6rem">
         <li>
           <a target="_blank" href="./home.html"> homepage </a>
+        </li>
+        <li>
+          <a target="_blank" href="./teams.html"> teams </a>
+        </li>
+        <li>
+          <a target="_blank" href="./team.html"> team </a>
         </li>
       </ul>
     </div>
     <style>
       @charset "UTF-8";
-      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&display=swap');
       * {
         padding: 0;
         margin: 0;
@@ -164,8 +171,6 @@
         font-weight: 800;
 
         user-select: none;
-
-        background: url(@img/vectors/bg.svg) center / contain repeat;
       }
       ul {
         margin-bottom: 10rem;
@@ -198,9 +203,6 @@
         text-align: center;
       }
       @media (max-width: 49em) {
-        body {
-          background: url(@img/vectors/bg-m.svg) center / contain repeat;
-        }
         html {
           font-size: 1.3625vw;
         }

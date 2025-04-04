@@ -1,6 +1,17 @@
 .teams {
   --opacity: 0;
 
+  &:not(.set-homepage-css &) {
+    @media (min-width: 49.01em) {
+      &::before,
+      &::after,
+      .teams__container::before,
+      .teams__container::after {
+        display: none;
+      }
+    }
+  }
+
   &::before,
   &::after,
   &__container::before,
@@ -43,6 +54,7 @@
       right: 1.8rem;
     }
   }
+
   // .teams__container
 
   &__container {
@@ -131,19 +143,19 @@
   --skew1: 1deg;
   --skew2: 1deg;
 
-  &:first-child {
-    .item-teams__logo {
-      transform: translate(-50%, -50%) scaleY(0.6) skewX(var(--skew1));
-    }
-  }
-  &:last-child {
-    .item-teams__logo {
-      transform: translate(-50%, -50%) scaleY(0.6) skewX(var(--skew2));
-    }
-  }
-
   .set-homepage-css & {
     visibility: hidden;
+
+    &:first-child {
+      .item-teams__logo {
+        transform: translate(-50%, -50%) scaleY(0.6) skewX(var(--skew1));
+      }
+    }
+    &:last-child {
+      .item-teams__logo {
+        transform: translate(-50%, -50%) scaleY(0.6) skewX(var(--skew2));
+      }
+    }
   }
 
   @media (min-width: 49.01em) {
@@ -219,8 +231,12 @@
     top: 50%;
     left: 50%;
 
-    transform: translate(-50%, -50%) scaleY(0.6);
+    transform: translate(-50%, -50%);
     transform-origin: center;
+
+    .set-homepage-css & {
+      transform: translate(-50%, -50%) scaleY(0.6);
+    }
 
     svg {
       width: 42rem;

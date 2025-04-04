@@ -46,19 +46,24 @@ window.addEventListener('load', function () {
 
   ScrollTrigger.refresh();
 
-  // window.scrollTo(0, 0);
+  tlPreloader.play();
+  checkScreenSize();
 
   if (document.querySelector('.hero')) {
     document.documentElement.classList.add('homepage');
 
     lenis.destroy();
 
-    tlPreloader.play();
-    checkScreenSize();
     initHomepageBullets();
-
-    window.addEventListener('resize', checkScreenSize);
+  } else if (
+    document.querySelector('[data-section]') &&
+    !document.querySelector('[data-section].fw')
+  ) {
+    document.documentElement.dataset.page =
+      document.querySelector('[data-section]').dataset.section;
   }
 
   initWatchTimer();
+
+  window.addEventListener('resize', checkScreenSize);
 });

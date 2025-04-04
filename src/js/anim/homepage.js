@@ -42,22 +42,24 @@ export const itemsTl = gsap
   });
 
 export const initItemsAnim = () => {
-  list.addEventListener('click', function () {
-    if (isTouch) {
-      list.classList.toggle('_is-active');
+  if (list) {
+    list.addEventListener('click', function () {
+      if (isTouch) {
+        list.classList.toggle('_is-active');
 
-      if (!list.classList.contains('_is-active')) {
-        itemsTl.reverse();
-      } else {
-        itemsTl.play();
+        if (!list.classList.contains('_is-active')) {
+          itemsTl.reverse();
+        } else {
+          itemsTl.play();
+        }
       }
-    }
-  });
+    });
 
-  list.addEventListener('mouseover', function () {
-    if (!isTouch) itemsTl.play();
-  });
-  list.addEventListener('mouseout', function () {
-    if (!isTouch) itemsTl.reverse();
-  });
+    list.addEventListener('mouseover', function () {
+      if (!isTouch) itemsTl.play();
+    });
+    list.addEventListener('mouseout', function () {
+      if (!isTouch) itemsTl.reverse();
+    });
+  }
 };

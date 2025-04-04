@@ -182,7 +182,6 @@ export const resetActiveSection = (
     // if (section.dataset.section !== 'leaders') {
     if (prevIdx >= 0 && document.querySelector(`.${INIT_SCROLL_CLASS}`)) {
       const curTl = timelines.filter(tl => tl.vars.id === `${prevIdx}-off`)[0];
-      console.log(prevIdx, prevIndex);
       curTl.restart();
       curTl.then(() => {
         transition(curTl);
