@@ -1,4 +1,6 @@
 .contacts {
+  min-height: 100dvh;
+
   .border {
     &::before {
       top: -0.1rem;
@@ -103,10 +105,10 @@
   &__form {
     display: flex;
     flex-direction: column;
-    row-gap: 8.3vh;
+    row-gap: 8vh;
 
     @media (max-width: 49em) {
-      row-gap: 12.6rem;
+      row-gap: 11.6rem;
     }
     @media (max-width: 450px) and (max-height: 850px) {
       row-gap: 4.6rem;
@@ -135,12 +137,17 @@
     display: grid;
     row-gap: 1.7rem;
 
+    .input_textarea {
+      height: 24vh;
+    }
+
     @media (min-width: 49.01em) {
       grid-template-columns: repeat(2, 1fr);
       gap: 1rem;
 
       .input_textarea {
         grid-column: span 2;
+        height: 26rem;
       }
     }
   }

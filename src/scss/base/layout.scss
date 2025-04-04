@@ -193,10 +193,26 @@ main {
   width: 100%;
   height: 6.3rem;
 
+  [data-page='contact'] & {
+    bottom: 2.3rem;
+  }
+
+  @media (min-width: 49.01em) {
+    [data-page='contact'] & {
+      bottom: 1.5rem;
+    }
+  }
+
   @media (max-width: 49em) {
     bottom: 5rem;
 
     height: 18.3rem;
+
+    [data-page='contact'] & {
+      &::after {
+        bottom: -1rem;
+      }
+    }
 
     [data-page='partners'] & {
       bottom: 2.8rem;
@@ -226,6 +242,21 @@ main {
 
   &__btn {
     margin: auto;
+
+    &_presskit.frame-btn {
+      .frame-btn__txt {
+        @media (min-width: 49.01em) {
+          padding: 0.9rem 4rem;
+        }
+      }
+      .border {
+        width: 96%;
+        @media (min-width: 49.01em) {
+          width: 155.5%;
+          height: 110%;
+        }
+      }
+    }
 
     &_main.frame-btn {
       .frame-btn__txt {
