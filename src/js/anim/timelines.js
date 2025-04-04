@@ -92,8 +92,10 @@ tlPreloaderLeave.to('.preloader__video, #loader', {
     });
     gsap.to('.header__heading', { opacity: 1 });
 
-    document.querySelector('[data-section]').classList.add(ACTIVE_CLASS);
-    resetActiveSection(document.querySelector('[data-section]'));
+    if (document.querySelector('[data-section]')) {
+      document.querySelector('[data-section]').classList.add(ACTIVE_CLASS);
+      resetActiveSection(document.querySelector('[data-section]'));
+    }
 
     tlMain.play();
   },

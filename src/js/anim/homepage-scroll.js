@@ -18,7 +18,6 @@ let yPos = 0;
 let leadersIdx = 0;
 
 export const leaders = gsap.utils.toArray('.leaders__group');
-const table = document.querySelector('.homepage-table');
 const heading = document.getElementById('section-heading');
 export const sections = gsap.utils.toArray('[data-section]');
 
@@ -72,14 +71,6 @@ const down = self => {
         scroll(self, activeIdx, 1);
       }
     }
-  } else {
-    // tlMain.revert();
-    // tlLinksLeave.play();
-    // tlLinksLeave.then(() => {
-    //   document.querySelector('[data-section]').classList.add(ACTIVE_CLASS);
-    //   resetActiveSection(document.querySelector('[data-section]'));
-    // });
-    // tlMain.play();
   }
 };
 const up = self => {

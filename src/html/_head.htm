@@ -40,6 +40,33 @@
       });
   </script>
 
+  <!-- critical css  -->
+  <style>
+    html::before {
+      content: '';
+
+      position: fixed;
+      z-index: 2;
+      inset: 0;
+
+      background-image: url(@img/vectors/bg.svg);
+      background-position: center var(--y);
+      background-size: contain;
+      background-repeat: repeat;
+    }
+
+    ._fonts-loaded .preloader__container {
+      opacity: 1;
+      filter: blur(0);
+      transform: translateY(0);
+    }
+    @media (max-width: 49em) {
+      html::before {
+        background-image: url(@img/vectors/bg-m.svg);
+      }
+    }
+  </style>
+
   <noscript>
     <div
       style="

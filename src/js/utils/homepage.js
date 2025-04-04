@@ -1,5 +1,5 @@
 import { resetActiveSection, sections } from '../anim/homepage-scroll';
-import { player1, video1 } from '../anim/timelines';
+import { player1 } from '../anim/timelines';
 import { md } from './script';
 import { removeClasses } from './utils';
 
@@ -57,14 +57,8 @@ export const initHomepageBullets = () => {
 
         if (player1) {
           if (sections[i].dataset.section === 'team') {
-            // player1.currentTime = player1.duration;
             player1.play();
           }
-          // if (video1 && sections[i].dataset.section === 'about') {
-          //   gsap.to(video1, { opacity: 0, duration: 1 });
-          //   player1.currentTime = 0;
-          //   gsap.to(video1, { opacity: 1, delay: 1 });
-          // }
         }
       });
     }

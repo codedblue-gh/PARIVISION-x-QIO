@@ -1,4 +1,7 @@
 .preloader {
+  z-index: 10;
+
+  background-color: var(--c-bg);
   // .preloader__container
 
   &__container {

@@ -91,22 +91,22 @@ html {
       opacity: var(--opacity);
     }
   }
+}
+html::before,
+.preloader::before {
+  content: '';
 
-  &::before {
-    content: '';
+  position: fixed;
+  z-index: 2;
+  inset: 0;
 
-    position: fixed;
-    z-index: 2;
-    inset: 0;
+  background-image: url(@img/vectors/bg.svg);
+  background-position: center var(--y);
+  background-size: contain;
+  background-repeat: repeat;
 
-    background-image: url(@img/vectors/bg.svg);
-    background-position: center var(--y);
-    background-size: contain;
-    background-repeat: repeat;
-
-    @media (max-width: 49em) {
-      background-image: url(@img/vectors/bg-m.svg);
-    }
+  @media (max-width: 49em) {
+    background-image: url(@img/vectors/bg-m.svg);
   }
 }
 
@@ -198,6 +198,16 @@ main {
 
     height: 18.3rem;
 
+    [data-page='partners'] & {
+      bottom: 2.8rem;
+
+      height: 10rem;
+
+      &::after {
+        display: none;
+      }
+    }
+
     &::after {
       content: '';
 
@@ -216,6 +226,22 @@ main {
 
   &__btn {
     margin: auto;
+
+    &_main.frame-btn {
+      .frame-btn__txt {
+        @media (min-width: 49.01em) {
+          padding: 1.2rem 7.3rem;
+        }
+      }
+      .border {
+        height: 82%;
+        width: 97%;
+        @media (min-width: 49.01em) {
+          width: 155.5%;
+          height: 126%;
+        }
+      }
+    }
 
     &_fl.frame-btn {
       .frame-btn__txt {
