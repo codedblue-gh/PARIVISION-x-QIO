@@ -158,22 +158,27 @@ html::before,
 
   body {
     --opacity: 0;
+
     &::after {
-      content: '';
-
-      position: fixed;
-      inset: 0;
-
-      background: url(@img/vectors/2131327187.svg) center / 100% auto no-repeat;
-
-      pointer-events: none;
-
       opacity: var(--opacity);
+    }
+  }
+}
 
-      @media (max-width: 49em) {
-        background: url(@img/vectors/2131327189.svg) center / 100% auto
-          no-repeat;
-      }
+.homepage body,
+.guidelines {
+  &::after {
+    content: '';
+
+    position: fixed;
+    inset: 0;
+
+    background: url(@img/vectors/2131327187.svg) center / 100% auto no-repeat;
+
+    pointer-events: none;
+
+    @media (max-width: 49em) {
+      background: url(@img/vectors/2131327189.svg) center / 100% auto no-repeat;
     }
   }
 }
@@ -243,6 +248,20 @@ main {
   &__btn {
     margin: auto;
 
+    &_media.frame-btn {
+      .frame-btn__txt {
+        @media (min-width: 49.01em) {
+          padding: 1.2rem 3rem;
+        }
+      }
+      .border {
+        @media (min-width: 49.01em) {
+          width: 157.5%;
+          height: 129%;
+        }
+      }
+    }
+
     &_presskit.frame-btn {
       .frame-btn__txt {
         @media (min-width: 49.01em) {
@@ -262,6 +281,10 @@ main {
       .frame-btn__txt {
         @media (min-width: 49.01em) {
           padding: 1.2rem 7.3rem;
+
+          [data-page='media'] & {
+            padding: 1.2rem 6.3rem;
+          }
         }
       }
       .border {

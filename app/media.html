@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-	<title>CONTACTS</title>
+	<title>MEDIA</title>
 	<meta charset="UTF-8" />
 	<meta name="format-detection" content="telephone=no" />
 	<link rel="shortcut icon" href="favicon.ico" />
@@ -93,16 +93,12 @@
 		<div class="header__container container">
 			<a href="/" class="header__logo"><img src="img/logo.svg" class="header__logo-img" alt="" /></a>
 			<span id="section-heading" class="header__heading h-x">MAIN</span>
-			<ul class="header__lang">
-				<li class="header__lang-item">
-					<input type="radio" name="page-lang" class="header__lang-item-inp" />
-					<span class="header__lang-item-txt">RU</span>
-				</li>
-				<li class="header__lang-item">
-					<input checked type="radio" name="page-lang" class="header__lang-item-inp" />
-					<span class="header__lang-item-txt">EN</span>
-				</li>
-			</ul>
+			<button type="button" class="header__btn btn">
+				<span class="btn__group">
+					<span class="btn__txt">SORT</span>
+					<span class="btn__txt-sm">BY MEDIA TYPE</span>
+				</span>
+			</button>
 			<nav class="header__nav">
 				<!-- <a href="#" class="header__nav-item">LOGIN</a>
       <a href="#" class="header__nav-item">SHOP</a>
@@ -125,37 +121,108 @@
 		</div>
 
 	</header>
-
 	<div class="capsule">
 		<div class="wrapper">
 			<main class="main">
-				<section data-section="contact" class="contacts">
-					<div class="contacts__container container">
-						<h2 class="contacts__heading screen-heading">
-							<span class="contacts__heading-txt">GET IN TOUCH</span><span class="contacts__heading-txt">WITH TEAM</span>
-						</h2>
-						<form action="#" class="contacts__form">
-							<div class="contacts__body border">
-								<div class="contacts__fields border__inner">
-									<input autocomplete="off" type="text" name="form[]" placeholder="TOPIC" class="contacts__input input" />
-									<input autocomplete="off" type="text" name="form[]" placeholder="E-MAIL" data-mail-mask class="contacts__input input" />
-									<input autocomplete="off" type="text" name="form[]" placeholder="FIRST NAME HERE" class="contacts__input input" />
-									<input autocomplete="off" type="text" name="form[]" placeholder="LAST NAME HERE" class="contacts__input input" />
-									<textarea class="contacts__input input input_textarea" placeholder="YOUR TEXT HERE"></textarea>
+				<section data-section="media" class="media">
+					<div class="media__container container">
+						<h1 class="media__title screen-heading">LATEST</h1>
+						<div class="media__head head-media">
+							<a href="#" class="head-media__inner">
+								<div class="head-media__content">
+									<span class="head-media__title">PARIVISION PHOTOSHOOT 2025</span>
+									<span class="head-media__link link link_blue">VIEW</span>
 								</div>
+								<div class="head-media__bg">
+									<img src="img/content/20900078411.webp" class="head-media__bg-image" alt="" />
+								</div>
+							</a>
+						</div>
+						<div class="media__body">
+							<ul class="media__list">
+								<li class="media__item news-card">
+									<a href="#" class="news-card__content">
+										<span class="news-card__heading">VR MULTIPLAYER COMPET IS STARTED</span>
+										<span class="news-card__date">DATE: 24_JAN_2025</span>
+									</a>
+									<div class="news-card__image-wrap">
+										<img src="img/content/2090007842.webp" class="news-card__image" alt="" />
+									</div>
+								</li>
+								<li class="media__item news-card">
+									<a href="#" class="news-card__content">
+										<span class="news-card__heading">VR MULTIPLAYER COMPET IS STARTED</span>
+										<span class="news-card__date">DATE: 24_JAN_2025</span>
+									</a>
+									<div class="news-card__image-wrap">
+										<img src="img/content/2090007856.webp" class="news-card__image" alt="" />
+									</div>
+								</li>
+								<li class="media__item news-card">
+									<a href="#" class="news-card__content">
+										<span class="news-card__heading">VR MULTIPLAYER COMPET IS STARTED</span>
+										<span class="news-card__date">DATE: 24_JAN_2025</span>
+									</a>
+									<div class="news-card__image-wrap">
+										<img src="img/content/2090007843.webp" class="news-card__image" alt="" />
+									</div>
+								</li>
+								<li class="media__item news-card">
+									<a href="#" class="news-card__content">
+										<span class="news-card__heading">VR MULTIPLAYER COMPET IS STARTED</span>
+										<span class="news-card__date">DATE: 24_JAN_2025</span>
+									</a>
+									<div class="news-card__image-wrap">
+										<img src="img/content/20900074844.webp" class="news-card__image" alt="" />
+									</div>
+								</li>
+								<li class="media__item news-card">
+									<a href="#" class="news-card__content">
+										<span class="news-card__heading">VR MULTIPLAYER COMPET IS STARTED</span>
+										<span class="news-card__date">DATE: 24_JAN_2025</span>
+									</a>
+									<div class="news-card__image-wrap">
+										<img src="img/content/20900407845.webp" class="news-card__image" alt="" />
+									</div>
+								</li>
+								<li class="media__item news-card">
+									<a href="#" class="news-card__content">
+										<span class="news-card__heading">VR MULTIPLAYER COMPET IS STARTED</span>
+										<span class="news-card__date">DATE: 24_JAN_2025</span>
+									</a>
+									<div class="news-card__image-wrap">
+										<img src="img/content/20900407846.webp" class="news-card__image" alt="" />
+									</div>
+								</li>
+							</ul>
+							<div class="media__controls">
+								<button type="button" class="media__controls-btn media__controls-btn_prev">
+									<svg>
+										<use href="#arr-svg"></use>
+									</svg>
+								</button>
+								<div class="media__fraction">
+									<span class="media__fraction-txt">1</span>
+									<span class="media__fraction-txt">10</span>
+								</div>
+								<button type="button" class="media__controls-btn media__controls-btn_next">
+									<svg>
+										<use href="#arr-svg"></use>
+									</svg>
+								</button>
 							</div>
-							<button type="submit" class="contacts__form-btn btn">SUBMIT</button>
-						</form>
+						</div>
+						<span class="media__lower-heading">PARIVISION TEAM</span>
 					</div>
 				</section>
 
 				<div class="lower-info">
-					<button type="button" class="lower-info__btn lower-info__btn_presskit frame-btn">
+					<a href="/" class="lower-info__btn lower-info__btn_main frame-btn">
 						<span class="frame-btn__inner">
-							<span class="frame-btn__txt">download presskit</span>
+							<span class="frame-btn__txt">back to main</span>
 						</span>
 						<span class="border"><span class="border__inner"></span></span>
-					</button>
+					</a>
 				</div>
 			</main>
 

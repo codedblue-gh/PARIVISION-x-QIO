@@ -1,4 +1,4 @@
-import { remToPx } from '../utils/utils';
+import { removeClasses, remToPx } from '../utils/utils';
 import { mm } from '../utils/script';
 
 window.addEventListener('load', function () {
@@ -34,6 +34,39 @@ window.addEventListener('load', function () {
       return () => {
         slider.destroy();
       };
+    });
+  }
+  if (document.querySelector('.gallery__slider')) {
+    const thumbs = gsap.utils.toArray('.gallery__thumb');
+    new Swiper('.gallery__slider', {
+      slidesPerView: 'auto',
+      loop: true,
+      navigation: {
+        prevEl: '.gallery .gallery__controls-btn_prev',
+        nextEl: '.gallery .gallery__controls-btn_next',
+      },
+      on: {
+        init: swiper => {
+          if (thumbs.length) {
+            thumbs[0].classList.add('_is-active');
+
+            thumbs.forEach((thumb, idx) => {
+              thumb.addEventListener('click', function () {
+                removeClasses(thumbs, '_is-active');
+                thumb.classList.add('_is-active');
+
+                swiper.slideTo(idx);
+              });
+            });
+          }
+        },
+        slideChange: swiper => {
+          if (thumbs.length && thumbs[swiper.realIndex]) {
+            removeClasses(thumbs, '_is-active');
+            thumbs[swiper.realIndex].classList.add('_is-active');
+          }
+        },
+      },
     });
   }
 });

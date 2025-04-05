@@ -99,8 +99,23 @@
     border-radius: 1.2rem;
   }
 
+  &__group {
+    display: inline-flex;
+    align-items: center;
+    flex-direction: column;
+    row-gap: 0.2rem;
+  }
+
   &__txt {
     font-weight: 500;
+  }
+
+  &__txt-sm {
+    font-family: 'Aeonik Mono';
+    font-size: 0.8rem;
+    line-height: 100%;
+
+    opacity: 0.4;
   }
 }
 
@@ -146,6 +161,7 @@
     letter-spacing: 0.05rem;
 
     &::after {
+      flex: 0 0 3rem;
       width: 3rem;
     }
   }
@@ -153,6 +169,26 @@
   &::after {
     content: var(--i-arr);
 
-    width: 1.5rem;
+    flex: 0 0 1.6rem;
+    width: 1.6rem;
+  }
+
+  &_blue {
+    column-gap: 1.5rem;
+
+    &::after {
+      content: var(--i-arr-blue);
+    }
+  }
+
+  &_y {
+    &::after {
+      content: var(--i-arr-sm);
+
+      flex: 0 0 1rem;
+      width: 1rem;
+
+      transform: rotate(90deg);
+    }
   }
 }

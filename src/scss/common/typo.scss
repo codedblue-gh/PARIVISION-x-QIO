@@ -7,6 +7,23 @@
   font: var(--txt-xs);
 }
 
+.num {
+  font-family: 'Druk Text Cyr';
+  font-style: italic;
+
+  [data-page='media'] & {
+    @media (min-width: 49.01em) {
+      margin-left: -1rem;
+    }
+  }
+
+  [data-page='teams'] & {
+    @media (max-width: 49em) {
+      margin-left: -3rem;
+    }
+  }
+}
+
 .h-x {
   font: var(--txt-x);
   letter-spacing: 0.05rem;

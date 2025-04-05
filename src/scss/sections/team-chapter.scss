@@ -24,16 +24,6 @@
   // .team-chapter__title
 
   &__title {
-    .num {
-      font-family: 'Druk Text Cyr';
-      font-style: italic;
-
-      [data-page='teams'] & {
-        @media (max-width: 49em) {
-          margin-left: -3rem;
-        }
-      }
-    }
   }
 
   // .team-chapter__items

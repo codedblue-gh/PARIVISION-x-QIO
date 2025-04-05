@@ -2,6 +2,38 @@ export const randomNumber = () => {
   Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
+export const initVideos = () => {
+  const btns = gsap.utils.toArray('[data-play-btn]');
+  const videos = gsap.utils.toArray('[data-video]');
+
+  if (videos.length) {
+    videos.forEach(video => {
+      video.addEventListener('ended', function () {
+        video.parentElement.classList.remove('_is-playing');
+      });
+      video.parentElement.addEventListener('click', function (e) {
+        if (!video.paused && !e.target.closest('[data-play-btn]')) {
+          video.pause();
+          video.closest('._is-playing').classList.remove('_is-playing');
+        }
+      });
+    });
+  }
+
+  if (btns.length) {
+    btns.forEach(btn => {
+      btn.addEventListener('click', function () {
+        const video = btn.parentElement.querySelector('video');
+
+        if (video) {
+          video.play();
+          btn.parentElement.classList.add('_is-playing');
+        }
+      });
+    });
+  }
+};
+
 export const isTouchDevice = () => {
   return (
     'ontouchstart' in window ||

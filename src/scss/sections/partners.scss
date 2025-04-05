@@ -84,45 +84,5 @@
   // .partners__socials
 
   &__socials {
-    display: grid;
-    grid-template-columns: repeat(4, 7.4rem);
-    column-gap: 2.8rem;
-    row-gap: 4rem;
-
-    @media (min-width: 49.01em) {
-      padding-left: 1rem;
-
-      grid-template-columns: repeat(4, 3.7rem);
-      column-gap: 2.2rem;
-      row-gap: 1.2rem;
-    }
-  }
-
-  // .partners__socials-item
-
-  &__socials-item {
-  }
-
-  // .partners__socials-item-content
-
-  &__socials-item-content {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    height: 3.7rem;
-
-    @media (max-width: 49em) {
-      height: 7.4rem;
-
-      svg {
-        width: 4.4rem;
-        height: 4.4rem;
-      }
-    }
-
-    svg {
-      width: 2.2rem;
-      height: 2.2rem;
-    }
   }
 }

@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-	<title>CONTACTS</title>
+	<title>MEDIA CHAPTER</title>
 	<meta charset="UTF-8" />
 	<meta name="format-detection" content="telephone=no" />
 	<link rel="shortcut icon" href="favicon.ico" />
@@ -93,16 +93,7 @@
 		<div class="header__container container">
 			<a href="/" class="header__logo"><img src="img/logo.svg" class="header__logo-img" alt="" /></a>
 			<span id="section-heading" class="header__heading h-x">MAIN</span>
-			<ul class="header__lang">
-				<li class="header__lang-item">
-					<input type="radio" name="page-lang" class="header__lang-item-inp" />
-					<span class="header__lang-item-txt">RU</span>
-				</li>
-				<li class="header__lang-item">
-					<input checked type="radio" name="page-lang" class="header__lang-item-inp" />
-					<span class="header__lang-item-txt">EN</span>
-				</li>
-			</ul>
+
 			<nav class="header__nav">
 				<!-- <a href="#" class="header__nav-item">LOGIN</a>
       <a href="#" class="header__nav-item">SHOP</a>
@@ -129,33 +120,108 @@
 	<div class="capsule">
 		<div class="wrapper">
 			<main class="main">
-				<section data-section="contact" class="contacts">
-					<div class="contacts__container container">
-						<h2 class="contacts__heading screen-heading">
-							<span class="contacts__heading-txt">GET IN TOUCH</span><span class="contacts__heading-txt">WITH TEAM</span>
-						</h2>
-						<form action="#" class="contacts__form">
-							<div class="contacts__body border">
-								<div class="contacts__fields border__inner">
-									<input autocomplete="off" type="text" name="form[]" placeholder="TOPIC" class="contacts__input input" />
-									<input autocomplete="off" type="text" name="form[]" placeholder="E-MAIL" data-mail-mask class="contacts__input input" />
-									<input autocomplete="off" type="text" name="form[]" placeholder="FIRST NAME HERE" class="contacts__input input" />
-									<input autocomplete="off" type="text" name="form[]" placeholder="LAST NAME HERE" class="contacts__input input" />
-									<textarea class="contacts__input input input_textarea" placeholder="YOUR TEXT HERE"></textarea>
+				<section data-section="media" class="media-chapter">
+					<div class="media-chapter__container container">
+						<h1 class="media-chapter__title screen-heading">
+							MSI TOURNAMENT <span class="num">‘24</span>
+						</h1>
+						<div class="media-chapter__bg">
+							<video data-video muted playsinline src="files/ProfessionalModeMorphVideo.mp4" class="media-chapter__bg-content"></video>
+							<button data-play-btn type="button" class="media-chapter__play-btn">
+								<svg>
+									<use href="#play-svg"></use>
+								</svg>
+							</button>
+						</div>
+						<div class="media-chapter__body">
+							<div class="media-chapter__group">
+								<div class="media-chapter__aside">
+									<time datetime="2025-03-03" class="media-chapter__time">03.03.2025</time>
+								</div>
+								<div class="media-chapter__content">
+									<p class="media-chapter__text">
+										Jami "Jame" Ali, former captain of the squad Virtus.pro In CS2, the
+										champion and MVP of the IEM Rio 2022 major, who played 856 cards for
+										the Bears, is leaving our club.
+									</p>
 								</div>
 							</div>
-							<button type="submit" class="contacts__form-btn btn">SUBMIT</button>
-						</form>
+							<div class="media-chapter__group">
+								<div class="media-chapter__aside">
+									<span class="media-chapter__text">Share:</span>
+								</div>
+								<div class="media-chapter__content">
+									<ul class="media-chapter__socials socials">
+										<li class="socials__item">
+											<a href="#" target="_blank" class="socials__content">
+												<svg>
+													<use href="#fb-ol-svg"></use>
+												</svg>
+											</a>
+										</li>
+										<li class="socials__item">
+											<a href="#" target="_blank" class="socials__content">
+												<svg>
+													<use href="#ig-ol-svg"></use>
+												</svg>
+											</a>
+										</li>
+										<li class="socials__item">
+											<a href="#" target="_blank" class="socials__content">
+												<svg>
+													<use href="#tiktok-ol-svg"></use>
+												</svg>
+											</a>
+										</li>
+										<li class="socials__item">
+											<a href="#" target="_blank" class="socials__content">
+												<svg>
+													<use href="#x-svg"></use>
+												</svg>
+											</a>
+										</li>
+										<li class="socials__item">
+											<a href="#" target="_blank" class="socials__content">
+												<svg>
+													<use href="#wa-ol-svg"></use>
+												</svg>
+											</a>
+										</li>
+										<li class="socials__item">
+											<a href="#" target="_blank" class="socials__content">
+												<svg>
+													<use href="#yt-ol-svg"></use>
+												</svg>
+											</a>
+										</li>
+										<li class="socials__item">
+											<a href="#" target="_blank" class="socials__content">
+												<svg>
+													<use href="#tg-ol-svg"></use>
+												</svg>
+											</a>
+										</li>
+										<li class="socials__item">
+											<a href="#" target="_blank" class="socials__content">
+												<svg>
+													<use href="#ds-ol-svg"></use>
+												</svg>
+											</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
 					</div>
 				</section>
 
 				<div class="lower-info">
-					<button type="button" class="lower-info__btn lower-info__btn_presskit frame-btn">
+					<a href="/" class="lower-info__btn lower-info__btn_main frame-btn">
 						<span class="frame-btn__inner">
-							<span class="frame-btn__txt">download presskit</span>
+							<span class="frame-btn__txt">back TO main</span>
 						</span>
 						<span class="border"><span class="border__inner"></span></span>
-					</button>
+					</a>
 				</div>
 			</main>
 

@@ -1,5 +1,5 @@
 import { itemsTl } from '../anim/homepage';
-import { initWatchTimer, isTouchDevice } from './utils';
+import { initVideos, initWatchTimer, isTouchDevice } from './utils';
 import { lenis } from '../lib/lenis';
 import { checkScreenSize, initHomepageBullets } from './homepage';
 import { tlPreloader } from '../anim/timelines';
@@ -64,6 +64,7 @@ window.addEventListener('load', function () {
   }
 
   initWatchTimer();
+  initVideos();
 
   window.addEventListener('resize', checkScreenSize);
 });
