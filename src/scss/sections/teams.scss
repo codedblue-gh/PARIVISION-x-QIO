@@ -1,6 +1,21 @@
 .teams {
   --opacity: 0;
 
+  &.fw {
+    padding: 12rem 0;
+
+    height: auto;
+    min-height: 100dvh;
+
+    @media (max-width: 49em) {
+      padding-bottom: 23rem;
+
+      .container {
+        padding-top: 6.6vh;
+      }
+    }
+  }
+
   &:not(.set-homepage-css &) {
     @media (min-width: 49.01em) {
       &::before,
