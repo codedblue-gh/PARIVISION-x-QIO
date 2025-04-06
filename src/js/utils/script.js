@@ -61,6 +61,8 @@ window.addEventListener('load', function () {
   ) {
     document.documentElement.dataset.page =
       document.querySelector('[data-section]').dataset.section;
+  } else if (document.querySelector('.teams')) {
+    document.documentElement.classList.add('teams-page');
   }
 
   initWatchTimer();

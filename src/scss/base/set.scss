@@ -16,7 +16,8 @@ html {
   -webkit-animation: bugfix infinite 1s;
   user-select: none;
 
-  &.homepage._hf {
+  &.homepage._hf,
+  &.teams-page._hf {
     font-size: 0.54vh;
 
     @media (min-width: 49.01em) {

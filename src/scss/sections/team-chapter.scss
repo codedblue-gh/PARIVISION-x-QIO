@@ -6,7 +6,7 @@
 
   @media (max-width: 49em) {
     padding-top: 11.4rem;
-    padding-bottom: 20.2rem;
+    padding-bottom: 24.2rem;
   }
 
   // .team-chapter__container
@@ -88,6 +88,8 @@
 
     @media (max-width: 49em) {
       margin-bottom: 3.1rem;
+
+      line-height: 56%;
     }
   }
 
@@ -123,6 +125,12 @@
       &:not(:last-child) {
         border-bottom: 0.3px solid var(--c-primary);
       }
+
+      &:last-child {
+        .item-team-chapter__txt {
+          transform: translateY(1rem);
+        }
+      }
     }
   }
 
@@ -147,7 +155,7 @@
     column-gap: 2.2rem;
 
     @media (max-width: 49em) {
-      column-gap: 3.4rem;
+      column-gap: 3.1rem;
     }
   }
 
