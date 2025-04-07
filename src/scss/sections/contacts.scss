@@ -1,8 +1,8 @@
 .contacts {
   min-height: 100dvh;
 
-  @media (min-width: 49.01em) {
-    padding-bottom: 14.4rem;
+  @media (max-width: 48em) {
+    padding-bottom: 24rem;
   }
 
   .border {
@@ -55,7 +55,7 @@
       @extend %ob-t;
     }
 
-    @media (min-width: 49.01em) and (min-height: 600px) {
+    @media (min-width: 48.01em) and (min-height: 600px) {
       &.container {
         &:not(._hf &, ._small-screen &) {
           justify-content: center;
@@ -66,7 +66,7 @@
     &.container {
       padding-top: 14rem;
 
-      @media (max-width: 49em) {
+      @media (max-width: 48em) {
         padding-top: 13.2rem;
       }
     }
@@ -82,7 +82,7 @@
 
     letter-spacing: 0.2rem;
 
-    @media (max-width: 49em) {
+    @media (max-width: 48em) {
       margin-bottom: 11.4rem;
 
       flex-direction: column;
@@ -99,7 +99,7 @@
   &__heading-txt {
     white-space: nowrap;
 
-    @media (max-width: 49em) {
+    @media (max-width: 48em) {
       letter-spacing: 0.1rem;
     }
   }
@@ -111,13 +111,13 @@
     flex-direction: column;
     row-gap: 8vh;
 
-    @media (max-width: 49em) {
+    @media (max-width: 48em) {
       row-gap: 11.6rem;
     }
     @media (max-width: 450px) and (max-height: 850px) {
       row-gap: 4.6rem;
     }
-    @media (min-width: 49.01em) {
+    @media (min-width: 48.01em) {
       ._small-screen &,
       ._hf & {
         row-gap: 4.3vh;
@@ -130,7 +130,7 @@
   &__body {
     padding: 0.7rem 0;
 
-    @media (max-width: 49em) {
+    @media (max-width: 48em) {
       padding: 0.3rem 0rem;
     }
   }
@@ -145,13 +145,17 @@
       height: 24vh;
     }
 
-    @media (min-width: 49.01em) {
+    @media (min-width: 48.01em) {
       grid-template-columns: repeat(2, 1fr);
       gap: 1rem;
 
       .input_textarea {
         grid-column: span 2;
         height: 26rem;
+
+        ._hf & {
+          height: 22rem;
+        }
       }
     }
   }

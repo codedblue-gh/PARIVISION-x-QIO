@@ -17,7 +17,8 @@ html {
   user-select: none;
 
   &.homepage._hf,
-  &.teams-page._hf {
+  &.teams-page._hf,
+  &[data-page='contact'] {
     font-size: 0.54vh;
 
     @media (min-width: 49.01em) {
