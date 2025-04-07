@@ -2,11 +2,23 @@
   padding-top: 18.8rem;
   padding-bottom: 0.9rem;
 
+  @media (min-width: 49.01em) {
+    height: 100dvh;
+  }
+
+  @media (min-width: 49.01em) and (max-height: 1240px) {
+    padding-top: 15rem;
+  }
+
   // .gallery__container
 
   &__container {
     display: flex;
     flex-direction: column;
+
+    @media (min-width: 49.01em) {
+      height: 100%;
+    }
   }
 
   // .gallery__slider
@@ -14,10 +26,24 @@
   &__slider {
     transform: translateX(-1.1rem);
 
+    .gallery__image {
+      @media (min-width: 49.01em) and (max-height: 1240px) {
+        &:not(._small-screen &, ._hf &) {
+          height: 65vh;
+        }
+      }
+    }
+
     &.swiper {
       margin-bottom: 2.5rem;
 
       width: 100dvw;
+
+      @media (min-width: 49.01em) and (max-height: 1240px) {
+        &:not(._small-screen &, ._hf &) {
+          margin-bottom: auto;
+        }
+      }
     }
   }
 

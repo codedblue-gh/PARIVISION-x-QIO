@@ -61,8 +61,14 @@ window.addEventListener('load', function () {
   ) {
     document.documentElement.dataset.page =
       document.querySelector('[data-section]').dataset.section;
-  } else if (document.querySelector('.teams')) {
-    document.documentElement.classList.add('teams-page');
+    if (document.querySelector('.gallery') && !md.matches) {
+      lenis.stop();
+    }
+  } else if (
+    document.querySelector('.teams') ||
+    document.querySelector('.gallery')
+  ) {
+    document.documentElement.classList.add('ad-width');
   }
 
   if (document.querySelector('.contacts__input')) {
