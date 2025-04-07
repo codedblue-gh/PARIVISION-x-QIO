@@ -122,11 +122,11 @@
 						<form action="#" class="contacts__form">
 							<div class="contacts__body border">
 								<div class="contacts__fields border__inner">
-									<input autocomplete="off" type="text" name="form[]" placeholder="TOPIC" class="contacts__input input" />
-									<input autocomplete="off" type="text" name="form[]" placeholder="E-MAIL" data-mail-mask class="contacts__input input" />
-									<input autocomplete="off" type="text" name="form[]" placeholder="FIRST NAME HERE" class="contacts__input input" />
-									<input autocomplete="off" type="text" name="form[]" placeholder="LAST NAME HERE" class="contacts__input input" />
-									<textarea class="contacts__input input input_textarea" placeholder="YOUR TEXT HERE"></textarea>
+									<input minlength="1" maxlength="95" autocomplete="off" type="text" name="form[]" placeholder="TOPIC" class="contacts__input input" />
+									<input minlength="1" maxlength="95" autocomplete="off" type="text" name="form[]" placeholder="E-MAIL" data-mail-mask class="contacts__input input" />
+									<input minlength="1" maxlength="95" autocomplete="off" type="text" name="form[]" placeholder="FIRST NAME HERE" class="contacts__input input" />
+									<input minlength="1" maxlength="95" autocomplete="off" type="text" name="form[]" placeholder="LAST NAME HERE" class="contacts__input input" />
+									<textarea minlength="1" maxlength="1000" class="contacts__input input input_textarea" placeholder="YOUR TEXT HERE"></textarea>
 								</div>
 							</div>
 							<button type="submit" class="contacts__form-btn btn">SUBMIT</button>

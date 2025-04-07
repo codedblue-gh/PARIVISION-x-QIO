@@ -65,6 +65,18 @@ window.addEventListener('load', function () {
     document.documentElement.classList.add('teams-page');
   }
 
+  if (document.querySelector('.contacts__input')) {
+    document
+      .querySelector('.contacts__form')
+      .addEventListener('submit', function (e) {
+        document.querySelectorAll('.contacts__input').forEach(input => {
+          if (input.value.length === 0) {
+            e.preventDefault();
+          }
+        });
+      });
+  }
+
   initWatchTimer();
   initVideos();
 
