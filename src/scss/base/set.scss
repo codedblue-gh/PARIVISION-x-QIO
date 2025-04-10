@@ -16,6 +16,10 @@ html {
   -webkit-animation: bugfix infinite 1s;
   user-select: none;
 
+  &::before {
+    pointer-events: none;
+  }
+
   &[data-page='shop'] {
     &::before {
       z-index: 3;
