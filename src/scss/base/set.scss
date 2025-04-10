@@ -16,6 +16,12 @@ html {
   -webkit-animation: bugfix infinite 1s;
   user-select: none;
 
+  &[data-page='shop'] {
+    &::before {
+      z-index: 3;
+    }
+  }
+
   &.homepage._hf,
   &.ad-width._hf,
   &[data-page='contact'] {

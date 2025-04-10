@@ -90,6 +90,10 @@
         margin-right: 9.7rem;
       }
 
+      [data-page='shop'] & {
+        margin-right: 18.7rem;
+      }
+
       [data-page='teams'] & {
         margin-right: 8rem;
       }
@@ -151,7 +155,7 @@
 
     transform: translateX(-50%);
 
-    [data-page='news'] & {
+    &:not(.set-homepage-css &) {
       display: none;
     }
 
