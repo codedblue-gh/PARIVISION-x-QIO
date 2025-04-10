@@ -1,0 +1,49 @@
+.filters {
+  margin-bottom: 15.2rem;
+
+  display: flex;
+  justify-content: center;
+
+  @media (max-width: 49em) {
+    margin-bottom: 13rem;
+
+    justify-content: flex-start;
+  }
+
+  @media (max-width: 450px) and (max-height: 850px) {
+    .set-homepage-css & {
+      margin-bottom: 6rem;
+    }
+  }
+
+  @media (min-width: 49.01em) {
+    .set-homepage-css & {
+      margin-left: 8rem;
+    }
+
+    ._small-screen &,
+    ._hf & {
+      margin-bottom: 7rem;
+    }
+  }
+
+  // .filters__badge
+
+  &__badge {
+    @media (max-width: 49em) {
+      display: flex;
+      justify-content: center;
+      flex: 1 1 auto;
+    }
+    .badge__inner {
+      min-width: 15.3rem;
+
+      @media (max-width: 49em) {
+        min-width: 24.4rem;
+      }
+      @media (max-width: 450px) and (max-height: 850px) {
+        padding: 3rem;
+      }
+    }
+  }
+}

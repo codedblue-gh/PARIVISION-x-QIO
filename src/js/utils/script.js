@@ -83,6 +83,36 @@ window.addEventListener('load', function () {
       });
   }
 
+  if (document.querySelector('.sort')) {
+    const list = document.querySelector('.sort');
+    const listTl = gsap.timeline({ paused: true }).to('.tags-list__item', {
+      '--mb': '2rem',
+      '--opacity': 1,
+      '--scale': 1,
+      duration: 0.5,
+      stagger: 0.2,
+    });
+
+    list.addEventListener('click', function () {
+      if (isTouch) {
+        list.classList.toggle('_is-active');
+
+        if (!list.classList.contains('_is-active')) {
+          listTl.reverse();
+        } else {
+          listTl.play();
+        }
+      }
+    });
+
+    list.addEventListener('mouseover', function () {
+      if (!isTouch) listTl.play();
+    });
+    list.addEventListener('mouseout', function () {
+      if (!isTouch) listTl.reverse();
+    });
+  }
+
   initWatchTimer();
   initVideos();
 

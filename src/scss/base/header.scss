@@ -86,6 +86,10 @@
       flex: 0 0 7.6rem;
       width: 7.6rem;
 
+      [data-page='news'] & {
+        margin-right: 9.7rem;
+      }
+
       [data-page='teams'] & {
         margin-right: 8rem;
       }
@@ -146,6 +150,10 @@
     column-gap: 0.1rem;
 
     transform: translateX(-50%);
+
+    [data-page='news'] & {
+      display: none;
+    }
 
     @media (max-width: 49em) {
       display: none;

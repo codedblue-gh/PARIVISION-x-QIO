@@ -30,6 +30,8 @@
 @import 'common/homepage-table';
 @import 'common/preloader';
 @import 'common/socials';
+@import 'common/filters';
+@import 'common/fraction';
 
 .wrapper {
   position: relative;
@@ -55,3 +57,4 @@ html:not(._page-loaded) {
 @import 'sections/media-chapter';
 @import 'sections/gallery';
 @import 'sections/guidelines';
+@import 'sections/news-section';
