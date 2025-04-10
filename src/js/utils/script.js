@@ -1,8 +1,13 @@
 import { itemsTl } from '../anim/homepage';
-import { initVideos, initWatchTimer, isTouchDevice } from './utils';
+import {
+  initVideos,
+  initWatchTimer,
+  isTouchDevice,
+  removeClasses,
+} from './utils';
 import { lenis } from '../lib/lenis';
 import { checkScreenSize, initHomepageBullets } from './homepage';
-import { tlPreloader } from '../anim/timelines';
+import { duration, tlPreloader } from '../anim/timelines';
 
 export const mm = gsap.matchMedia();
 export const md = window.matchMedia('(max-width: 49em)');
@@ -81,6 +86,29 @@ window.addEventListener('load', function () {
           }
         });
       });
+  }
+
+  if (document.querySelector('.item-teams') && !isTouch) {
+    const arr = gsap.utils.toArray('.item-teams');
+
+    arr.forEach((item, idx) => {
+      item.addEventListener('mouseover', function () {
+        arr.forEach((el, i) => {
+          if (i !== idx) {
+            gsap.to(el, { '--alpha': 1, duration: 0.5 });
+          } else {
+            gsap.to(el, { '--alpha': 0, duration: 0.5 });
+          }
+        });
+      });
+    });
+    arr.forEach((item, idx) => {
+      item.addEventListener('mouseleave', function (e) {
+        if (!e.relatedTarget.closest('.item-teams')) {
+          gsap.to(arr, { '--alpha': 0, duration: 0.5 });
+        }
+      });
+    });
   }
 
   if (document.querySelector('.sort')) {

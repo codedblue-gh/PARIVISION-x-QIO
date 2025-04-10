@@ -153,10 +153,13 @@
 }
 
 .item-teams {
+  position: relative;
+
   --opacity: 0;
   --blur: 3rem;
   --skew1: 1deg;
   --skew2: 1deg;
+  --alpha: 0;
 
   .set-homepage-css & {
     visibility: hidden;
@@ -205,6 +208,23 @@
 
     overflow: hidden;
 
+    &::after {
+      content: '';
+
+      position: absolute;
+      top: -1.3rem;
+      left: -1.3rem;
+
+      width: calc(100% + 2.6rem);
+      height: calc(100% + 2.6rem);
+
+      background-color: rgba(0, 0, 0, 0.5);
+
+      pointer-events: none;
+
+      opacity: var(--alpha);
+    }
+
     &::before {
       content: '';
 
@@ -222,19 +242,6 @@
     @media (max-width: 49em) {
       min-height: 18.5vh;
       border-radius: 0.8rem;
-    }
-
-    @media (any-hover: hover) {
-      &:hover {
-        .item-teams__bg {
-          opacity: 1;
-        }
-        .item-teams__logo {
-          svg {
-            color: var(--c-primary);
-          }
-        }
-      }
     }
   }
 
