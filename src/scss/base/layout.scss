@@ -206,6 +206,15 @@ main {
   width: 100%;
   height: 6.3rem;
 
+  .homepage-table__list {
+    @media (min-width: 64.01em) {
+      display: none;
+    }
+    @media (max-width: 49em) {
+      display: none;
+    }
+  }
+
   [data-page='contact'] & {
     bottom: 2.3rem;
   }
@@ -213,6 +222,27 @@ main {
   @media (min-width: 49.01em) {
     [data-page='contact'] & {
       bottom: 1.5rem;
+    }
+  }
+
+  @media (max-width: 64em) and (min-width: 49.01em) {
+    [data-page='contact'] & {
+      bottom: 1rem;
+      left: 50%;
+      flex-direction: column;
+      height: auto;
+      width: 53rem;
+      transform: translateX(-50%);
+
+      .frame-btn__inner {
+        height: 8rem;
+      }
+      .frame-btn__txt {
+        padding: 0.5rem 3rem;
+      }
+      .border {
+        width: 232.5%;
+      }
     }
   }
 
@@ -294,6 +324,22 @@ main {
 
           [data-page='media'] & {
             padding: 1.2rem 6.3rem;
+          }
+        }
+      }
+      @media (max-width: 64em) and (min-width: 49.01em) {
+        [data-page='partners'] & {
+          .frame-btn__inner {
+            height: 3rem;
+          }
+          .frame-btn__txt {
+            padding: 0.5rem 5.5rem;
+          }
+          .border {
+            top: 26%;
+
+            width: 225.5%;
+            height: 127%;
           }
         }
       }

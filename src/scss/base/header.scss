@@ -131,6 +131,17 @@
       [data-current-section='links'] & {
         margin-right: 17rem;
       }
+
+      [data-page='partners'] & {
+        margin-right: 10rem;
+      }
+
+      [data-page='contact'] & {
+        margin-right: 13rem;
+
+        flex: 0 0 10rem;
+        width: 10rem;
+      }
     }
   }
 
@@ -173,10 +184,6 @@
     column-gap: 0.1rem;
 
     transform: translateX(-50%);
-
-    &:not(.set-homepage-css &) {
-      display: none;
-    }
 
     @media (max-width: 64em) and (min-width: 49.01em) {
       top: 1rem;
@@ -267,6 +274,10 @@
       padding: 1rem 1.5rem;
 
       transform: translateY(-0.3rem);
+
+      [data-page='contact'] & {
+        padding: 1.1rem 2rem;
+      }
     }
 
     @media (max-width: 49em) {

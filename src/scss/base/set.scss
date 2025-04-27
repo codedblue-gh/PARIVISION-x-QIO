@@ -27,11 +27,26 @@ html {
   }
 
   &.homepage._hf,
-  &.ad-width._hf,
-  &[data-page='contact'] {
+  &.ad-width._hf {
     font-size: 0.54vh;
 
     @media (min-width: 49.01em) {
+      font-size: 1.06vh;
+
+      body::after {
+        background: url(@img/vectors/2131327187.svg) center 40% / 100% auto
+          no-repeat;
+      }
+
+      .container {
+        width: 99%;
+      }
+    }
+  }
+
+  &[data-page='contact'] {
+    font-size: 0.54vh;
+    @media (min-width: 64.01em) {
       font-size: 1.06vh;
 
       body::after {

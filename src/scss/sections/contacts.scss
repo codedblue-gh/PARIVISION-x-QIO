@@ -69,6 +69,10 @@
       @media (max-width: 48em) {
         padding-top: 13.2rem;
       }
+
+      @media (max-width: 64em) and (min-width: 49.01em) {
+        padding-top: 23rem;
+      }
     }
   }
 
@@ -91,6 +95,10 @@
       span:last-child {
         margin-left: auto;
       }
+    }
+
+    @media (max-width: 64em) and (min-width: 49.01em) {
+      margin-bottom: 6.5vh;
     }
   }
 
@@ -121,6 +129,26 @@
       ._small-screen &,
       ._hf & {
         row-gap: 4.3vh;
+      }
+    }
+    @media (max-width: 64em) and (min-width: 49.01em) {
+      row-gap: 2vh;
+
+      .input {
+        padding: 2.1rem 2.2rem;
+
+        height: 10.3rem;
+
+        font-size: 1.84rem;
+
+        &::placeholder {
+          font-size: 1.84rem;
+        }
+
+        &_textarea {
+          padding: 3rem 1.6rem;
+          height: 43vh;
+        }
       }
     }
   }
