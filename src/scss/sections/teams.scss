@@ -52,6 +52,10 @@
     top: 10.2rem;
     left: 1.2rem;
 
+    @media (max-width: 64em) and (min-width: 49.01em) {
+      top: 11.5rem;
+    }
+
     @media (max-width: 49em) {
       top: 13.4rem;
       left: 1.8rem;
@@ -63,6 +67,10 @@
     right: 1.2rem;
 
     transform: scaleX(-1);
+
+    @media (max-width: 64em) and (min-width: 49.01em) {
+      top: 11.5rem;
+    }
 
     @media (max-width: 49em) {
       top: 13.4rem;
@@ -94,6 +102,10 @@
 
       transform: scaleY(-1);
 
+      @media (max-width: 64em) and (min-width: 49.01em) {
+        bottom: 11.1rem;
+      }
+
       @media (max-width: 49em) {
         bottom: 25.2rem;
         left: 1.8rem;
@@ -105,6 +117,10 @@
       right: 1.2rem;
 
       transform: scale(-1, -1);
+
+      @media (max-width: 64em) and (min-width: 49.01em) {
+        bottom: 11.1rem;
+      }
 
       @media (max-width: 49em) {
         bottom: 25.2rem;
@@ -120,9 +136,24 @@
     row-gap: 5.7vh;
     width: 100%;
 
-    @media (min-width: 49.01em) {
+    @media (min-width: 64.01em) {
       grid-template-columns: repeat(3, 1fr);
       column-gap: 15.2rem;
+    }
+
+    @media (max-width: 64em) and (min-width: 49.01em) {
+      padding: 12.2vh 0;
+
+      justify-items: center;
+      height: 100%;
+      row-gap: 8.7vh;
+    }
+    @media (max-width: 64em) and (min-width: 49.01em) and (max-height: 1360px) {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      row-gap: 2rem;
     }
   }
 
@@ -136,12 +167,28 @@
         @media (max-width: 49em) {
           width: 64rem;
         }
+
+        @media (max-width: 64em) and (min-width: 49.01em) {
+          width: 38rem;
+        }
+      }
+    }
+    &:nth-child(2) {
+      svg {
+        @media (max-width: 64em) and (min-width: 49.01em) and (min-height: 1360px) {
+          width: 67rem;
+        }
       }
     }
     &:nth-child(3) {
       svg {
         height: 10rem;
         width: 42.5rem;
+
+        @media (max-width: 64em) and (min-width: 49.01em) and (min-height: 1360px) {
+          height: 15rem;
+          width: 58rem;
+        }
 
         @media (max-width: 49em) {
           height: 13rem;
@@ -207,6 +254,11 @@
     border-radius: 0.4rem;
 
     overflow: hidden;
+
+    @media (max-width: 64em) and (min-width: 49.01em) {
+      min-height: 17.7vh;
+      width: 82rem;
+    }
 
     &::after {
       content: '';

@@ -6,10 +6,14 @@
 
   width: 100%;
 
+  [data-current-section='links'] & {
+    display: none;
+  }
+
   .frame-btn {
     margin: 0 auto;
 
-    @media (min-width: 49.01em) {
+    @media (min-width: 64.01em) {
       &.homepage-table__btn_news {
         .border {
           width: 155.5%;
@@ -22,6 +26,28 @@
         .border {
           width: 157.5%;
         }
+      }
+    }
+
+    @media (max-width: 64em) and (min-width: 49.01em) {
+      margin-bottom: 4rem;
+
+      .frame-btn__txt {
+        padding: 0.3rem 1rem;
+
+        [data-current-section='teams'] & {
+          padding: 0.3rem 3.5rem;
+        }
+        [data-current-section='news'] & {
+          padding: 0.3rem 4rem;
+        }
+      }
+
+      .border {
+        top: 60%;
+
+        width: 226.5%;
+        height: 120%;
       }
     }
   }
@@ -41,6 +67,9 @@
   // .homepage-table__container
 
   &__container {
+    display: flex;
+    justify-content: center;
+
     transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
 
     ._is-hidden & {
@@ -48,7 +77,7 @@
       visibility: hidden;
     }
 
-    @media (min-width: 49.01em) {
+    @media (min-width: 64.01em) {
       display: grid;
       grid-template-columns: 11.9fr 9fr 4fr;
       align-items: end;
@@ -69,7 +98,7 @@
     display: flex;
     align-items: flex-end;
 
-    @media (max-width: 49em) {
+    @media (max-width: 64em) {
       display: none;
     }
   }
@@ -107,6 +136,7 @@
   &__btn {
     &.frame-btn {
       display: none;
+
       [data-table-section='teams'] & {
         &.homepage-table__btn_teams {
           display: inline-flex;
@@ -141,7 +171,7 @@
       display: none;
     }
 
-    @media (max-width: 49em) {
+    @media (max-width: 64em) {
       display: none;
     }
   }
@@ -165,7 +195,17 @@
     display: flex;
     flex-direction: column;
 
-    @media (min-width: 49.01em) {
+    @media (max-width: 64em) and (min-width: 49.01em) {
+      padding-bottom: 3rem;
+
+      [data-current-section='leaders'] &,
+      [data-current-section='teams'] &,
+      [data-current-section='news'] & {
+        display: none;
+      }
+    }
+
+    @media (min-width: 64.01em) {
       margin-left: auto;
 
       width: 30rem;
@@ -197,25 +237,34 @@
 }
 .homepage-table,
 .sort {
+  @media (max-width: 64em) {
+    &::after {
+      content: '';
+
+      position: absolute;
+      bottom: 1.5rem;
+      left: 50%;
+
+      width: 102%;
+      height: 1.1rem;
+
+      background: url(@img/vectors/2131327217.svg) center / contain no-repeat;
+      background-repeat: repeat-x;
+
+      transform: translate(-50%, 50%);
+    }
+  }
   @media (max-width: 49em) {
     padding-bottom: 1rem;
 
     bottom: 4rem;
 
     &::after {
-      content: '';
-
-      position: absolute;
       bottom: -2rem;
-      left: 50%;
 
-      width: 102%;
       height: 2.5rem;
 
       background: url(@img/vectors/2131327207.svg) center / contain no-repeat;
-      background-repeat: repeat-x;
-
-      transform: translate(-50%, 50%);
     }
   }
 }
@@ -257,6 +306,12 @@
       padding: 2.6rem 3.8rem;
 
       border-radius: 0.8rem;
+    }
+
+    @media (max-width: 64em) and (min-width: 49.01em) {
+      padding: 2rem 1.9rem;
+
+      min-width: 46rem;
     }
 
     @media (min-width: 49.01em) {
@@ -339,6 +394,10 @@
     height: 1.5rem;
 
     @media (max-width: 49em) {
+      display: none;
+    }
+
+    @media (max-width: 64em) and (min-width: 49.01em) {
       display: none;
     }
   }

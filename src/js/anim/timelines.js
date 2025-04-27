@@ -156,6 +156,11 @@ export const tlNews = gsap.timeline({
 export const tlNewsLeave = gsap.timeline({
   ...offDefaults,
   id: `${sections.indexOf(sectionNews)}-off`,
+  onStart: function () {
+    if (document.querySelector('[data-current-section="links"]')) {
+      this.getChildren()[0].vars = {};
+    }
+  },
 });
 
 export const tlContacts = gsap.timeline({
@@ -325,7 +330,7 @@ if (document.querySelector('.set-homepage-css')) {
       ...clearedProps,
       onStart: () => {
         const cnd =
-          window.innerWidth <= 784 &&
+          window.innerWidth <= 1024 &&
           !leaders[leaders.length - 1].classList.contains('_is-visible');
 
         document.documentElement.classList.add('leaders-screen');
@@ -436,15 +441,9 @@ if (document.querySelector('.set-homepage-css')) {
   });
   tlLinks.to('.links__container', {
     ...clearedProps,
-    onStart: () => {
-      table && table.classList.add('_is-hidden');
-    },
   });
   tlLinksLeave.to('.links__container', {
     ...blurTopProps,
-    onComplete: () => {
-      table && table.classList.remove('_is-hidden');
-    },
   });
 }
 

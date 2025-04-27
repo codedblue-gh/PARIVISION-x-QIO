@@ -13,21 +13,28 @@
       padding-bottom: 25.2rem;
     }
 
+    @media (max-width: 64.01em) {
+      grid-template-rows: 24rem 11rem;
+    }
+
+    @media (min-width: 49.01em) {
+      grid-template-rows: 13rem minmax(22.9rem, auto);
+    }
+
     @media (min-width: 49.01em) {
       display: grid;
       align-content: end;
       row-gap: 3.6rem;
-      grid-template-rows: 13rem minmax(22.9rem, auto);
-
+    }
+    @media (min-width: 64.01em) {
       &.container {
         padding-bottom: 11.5vh;
       }
     }
-    @media (min-width: 49.01em) and (min-height: 600px) and (max-width: 64em) {
+
+    @media (max-width: 64em) {
       &.container {
-        &:not(._hf &, ._small-screen &) {
-          padding-bottom: 40vh;
-        }
+        padding-bottom: 13.5vh;
       }
     }
   }
@@ -37,7 +44,10 @@
   &__heading {
     display: flex;
     flex-wrap: wrap;
-    max-width: 194rem;
+
+    @media (min-width: 64.01em) {
+      max-width: 194rem;
+    }
 
     @media (max-width: 49em) {
       margin: 0 auto;
@@ -56,7 +66,23 @@
       @extend %ob-t;
     }
 
-    @media (min-width: 49.01em) {
+    @media (max-width: 64em) and (min-width: 49.01em) {
+      font-size: 12rem;
+      line-height: 82%;
+
+      &:nth-child(3) {
+        margin-left: 26rem;
+
+        width: 100%;
+      }
+
+      &:nth-child(4) {
+        margin-left: auto;
+        margin-right: 2rem;
+      }
+    }
+
+    @media (min-width: 64.01em) {
       &:first-child {
         margin-right: 73.6rem;
 
@@ -70,6 +96,12 @@
       &:nth-child(4) {
         margin-top: 0.5rem;
         margin-left: 91.5rem;
+      }
+    }
+
+    @media (min-width: 49.01em) and (max-width: 64em) {
+      &:first-child {
+        margin-right: auto;
       }
     }
 
@@ -102,6 +134,10 @@
       opacity: 0;
       transform: translateY(20%);
     }
+
+    @media (max-width: 64em) and (min-width: 49.01em) {
+      flex-direction: column;
+    }
   }
 
   // .about__text
@@ -112,6 +148,14 @@
     @media (max-width: 49em) {
       &._desktop-only {
         display: none;
+      }
+    }
+
+    @media (max-width: 64em) and (min-width: 49.01em) {
+      &:first-child {
+        max-width: 38.8rem;
+
+        transform: translateY(-47rem);
       }
     }
 

@@ -80,7 +80,7 @@
     flex: 0 0 6.2rem;
     width: 6.2rem;
 
-    @media (min-width: 49.01em) {
+    @media (min-width: 64.01em) {
       margin-right: 15.7rem;
 
       flex: 0 0 7.6rem;
@@ -111,6 +111,25 @@
 
       .set-homepage-css & {
         margin-right: 11.3rem;
+      }
+    }
+
+    @media (max-width: 64em) and (min-width: 49.01em) {
+      margin-right: 18rem;
+
+      flex: 0 0 8.5rem;
+      width: 8.5rem;
+
+      [data-current-section='about'] & {
+        margin-right: 16rem;
+      }
+
+      [data-current-section='teams'] & {
+        margin-right: 15.5rem;
+      }
+      [data-current-section='news'] &,
+      [data-current-section='links'] & {
+        margin-right: 17rem;
       }
     }
   }
@@ -157,6 +176,11 @@
 
     &:not(.set-homepage-css &) {
       display: none;
+    }
+
+    @media (max-width: 64em) and (min-width: 49.01em) {
+      top: 1rem;
+      left: 50%;
     }
 
     @media (max-width: 49em) {
@@ -238,6 +262,12 @@
     text-transform: uppercase;
 
     background-color: var(--c-primary);
+
+    @media (max-width: 64em) and (min-width: 49.01em) {
+      padding: 1rem 1.5rem;
+
+      transform: translateY(-0.3rem);
+    }
 
     @media (max-width: 49em) {
       padding: 0.9rem 1.1rem;

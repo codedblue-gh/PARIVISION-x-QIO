@@ -1,6 +1,6 @@
 import { resetActiveSection, sections } from '../anim/homepage-scroll';
 import { player1 } from '../anim/timelines';
-import { md } from './script';
+import { md, resizeNsScreen } from './script';
 import { removeClasses } from './utils';
 
 export const checkScreenSize = () => {
@@ -9,6 +9,8 @@ export const checkScreenSize = () => {
   const l = 0.749633968;
   const width = window.innerWidth;
   const height = window.innerHeight;
+
+  resizeNsScreen();
 
   if (
     (md.matches && height / width <= x) ||

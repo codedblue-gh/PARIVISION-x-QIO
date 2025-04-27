@@ -19,7 +19,7 @@ export const initLeadersScreenObserver = (self, leaders, leadersIdx) => {
   if (deltaY < 0) {
     leaders[leadersIdx + 1] &&
       leaders[leadersIdx + 1].classList.remove('_is-visible');
-  } else if (window.innerWidth <= 784) {
+  } else if (window.innerWidth <= 1024) {
     document
       .querySelector('.leaders__group_center')
       .classList.remove('_is-visible');

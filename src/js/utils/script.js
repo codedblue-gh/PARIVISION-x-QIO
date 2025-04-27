@@ -12,6 +12,20 @@ import { duration, tlPreloader } from '../anim/timelines';
 export const mm = gsap.matchMedia();
 export const md = window.matchMedia('(max-width: 49em)');
 export const isTouch = isTouchDevice();
+export const resizeNsScreen = () => {
+  if (
+    document.querySelector('.links__container') &&
+    document.querySelector('.news')
+  ) {
+    gsap.set('.news', {
+      '--height': `${
+        window.screen.availHeight -
+        document.querySelector('.links__container').offsetHeight -
+        106
+      }px`,
+    });
+  }
+};
 
 document.addEventListener('DOMContentLoaded', function () {
   if (document.querySelectorAll('[data-current-year]').length) {
@@ -141,6 +155,7 @@ window.addEventListener('load', function () {
     });
   }
 
+  resizeNsScreen();
   initWatchTimer();
   initVideos();
 

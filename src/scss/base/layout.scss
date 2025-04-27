@@ -105,6 +105,10 @@ html::before,
   background-size: contain;
   background-repeat: repeat;
 
+  @media (max-width: 64em) and (min-width: 49.01em) {
+    background-image: url(@img/vectors/2131327203.svg);
+  }
+
   @media (max-width: 49em) {
     background-image: url(@img/vectors/bg-m.svg);
   }
@@ -176,6 +180,10 @@ html::before,
     background: url(@img/vectors/2131327187.svg) center / 100% auto no-repeat;
 
     pointer-events: none;
+
+    @media (max-width: 64em) and (min-width: 49.01em) {
+      background: url(@img/vectors/2131327225.svg) center / 100% auto no-repeat;
+    }
 
     @media (max-width: 49em) {
       background: url(@img/vectors/2131327189.svg) center / 100% auto no-repeat;
@@ -363,6 +371,11 @@ main {
     svg {
       width: 1.8rem;
       height: 1.8rem;
+
+      @media (max-width: 64em) and (min-width: 49.01em) {
+        width: 2.8rem;
+        height: 2.8rem;
+      }
     }
     // .controls__btn_prev
 

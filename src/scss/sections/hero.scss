@@ -10,6 +10,10 @@
       @extend %ob-t;
     }
 
+    @media (max-width: 64em) and (min-width: 49.01em) {
+      row-gap: 3rem;
+    }
+
     @media (min-width: 49.01em) {
       &.container {
         padding-top: 0.4rem;
@@ -21,6 +25,18 @@
 
   &__top {
     margin-bottom: 12.3rem;
+
+    @media (max-width: 64em) and (min-width: 49.01em) {
+      margin-bottom: auto;
+      padding-top: 20.6rem;
+
+      .hero__txt {
+        max-width: 37.8rem;
+      }
+    }
+    @media (max-width: 64em) and (min-width: 49.01em) and (min-height: 1300px) {
+      padding-bottom: 11rem;
+    }
 
     @media (max-width: 49em) {
       margin-bottom: 12rem;
@@ -40,8 +56,11 @@
   // .hero__txt
 
   &__txt {
-    @media (min-width: 49.01em) {
+    @media (min-width: 64.01em) {
       max-width: 29rem;
+    }
+    @media (min-width: 49.01em) and (max-width: 64em) {
+      max-width: 38rem;
     }
   }
 
@@ -56,11 +75,26 @@
     letter-spacing: 0.4rem;
 
     @media (min-width: 49.01em) {
+      white-space: nowrap;
+    }
+
+    @media (min-width: 64.01em) {
       margin-bottom: 15.4rem;
 
       letter-spacing: 0.7rem;
       word-spacing: -1.9rem;
-      white-space: nowrap;
+    }
+
+    @media (max-width: 64em) and (min-width: 49.01em) {
+      margin-bottom: auto;
+
+      letter-spacing: 0.5rem;
+      word-spacing: -1rem;
+    }
+    @media (max-width: 64em) and (min-width: 49.01em) and (min-height: 1300px) {
+      &:not(._hf &) {
+        transform: translateY(5rem);
+      }
     }
 
     @media (max-width: 49em) {
@@ -75,6 +109,13 @@
   &__bottom {
     display: grid;
     grid-template-columns: 1fr 26.6rem;
+
+    @media (max-width: 64em) and (min-width: 49.01em) {
+      margin-bottom: auto;
+      padding-bottom: 18rem;
+
+      grid-template-columns: 11.6fr 47rem 35rem;
+    }
 
     @media (max-width: 49em) {
       transform: translateY(5rem);

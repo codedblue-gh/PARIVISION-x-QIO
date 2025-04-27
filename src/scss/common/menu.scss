@@ -16,6 +16,10 @@
     transition-delay: 0.7s;
   }
 
+  @media (max-width: 64em) and (min-width: 49.01em) {
+    top: 1.2rem;
+  }
+
   @media (max-width: 49em) {
     top: 1.8rem;
     right: 1.8rem;
@@ -39,6 +43,10 @@
 
     transition: opacity 0.7s ease, visibility 0.7s ease;
     transition-delay: 0.7s;
+
+    @media (max-width: 64em) and (min-width: 49.01em) {
+      min-width: 36.2rem;
+    }
 
     @media (max-width: 49em) {
       padding: 0 0 1.4rem 1.4rem;
@@ -94,6 +102,11 @@
     letter-spacing: 0.2rem;
     text-align: right;
     text-transform: uppercase;
+
+    @media (max-width: 64em) and (min-width: 49.01em) {
+      font-size: 8rem;
+      line-height: 87%;
+    }
 
     @media (max-width: 49em) {
       font-size: var(--fz-130-hf);

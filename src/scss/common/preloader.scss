@@ -19,6 +19,11 @@
       padding-top: 3.9rem;
       padding-bottom: 1.4rem;
 
+      @media (max-width: 64em) and (min-width: 49.01em) {
+        padding-top: 0.9rem;
+        padding-bottom: 0.9rem;
+      }
+
       @media (max-width: 49em) {
         padding-top: 5.3rem;
         padding-bottom: 0.8rem;
@@ -34,6 +39,28 @@
     display: grid;
     grid-template-columns: 10fr 5fr 10fr;
     align-items: center;
+
+    @media (max-width: 64em) and (min-width: 49.01em) {
+      &:nth-child(3) {
+        .preloader__progress {
+          transform: translateY(3rem);
+        }
+      }
+    }
+
+    .frame-btn {
+      &__inner {
+        @media (max-width: 64em) and (min-width: 49.01em) {
+          height: 7.4rem;
+          min-width: 27.6rem;
+        }
+      }
+      &__txt {
+        @media (max-width: 64em) and (min-width: 49.01em) {
+          padding: 0.3rem 1.5rem;
+        }
+      }
+    }
 
     @media (max-width: 49em) {
       display: flex;
@@ -59,11 +86,17 @@
     }
 
     &::before {
+      content: '';
+
       position: absolute;
       left: 0;
 
       width: 100%;
       height: 3.168rem;
+
+      @media (max-width: 64em) and (min-width: 49.01em) {
+        height: 3.7rem;
+      }
 
       @media (max-width: 49em) {
         height: 6.336rem;
@@ -75,6 +108,10 @@
         bottom: 9.3rem;
 
         background: url(@img/vectors/2131327196.svg) left / cover repeat-x;
+
+        @media (max-width: 64em) and (min-width: 49.01em) {
+          bottom: 10.3rem;
+        }
 
         @media (max-width: 49em) {
           bottom: 24rem;
@@ -91,6 +128,10 @@
         top: 9.4rem;
 
         background: url(@img/vectors/2131327191.svg) left / cover repeat-x;
+
+        @media (max-width: 64em) and (min-width: 49.01em) {
+          top: 10.4rem;
+        }
 
         @media (max-width: 49em) {
           top: 11.8rem;
@@ -131,6 +172,14 @@
     position: absolute;
     z-index: -1;
     inset: 0;
+
+    @media (max-width: 64em) and (min-width: 49.01em) {
+      transform: translateY(3rem);
+
+      .preloader__progress {
+        display: none;
+      }
+    }
 
     video {
       position: absolute;

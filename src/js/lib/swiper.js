@@ -3,7 +3,7 @@ import { mm } from '../utils/script';
 
 window.addEventListener('load', function () {
   if (document.querySelector('.news__slider')) {
-    mm.add('(min-width: 49em)', () => {
+    mm.add('(min-width: 64em)', () => {
       const slider = new Swiper('.news__slider', {
         slidesPerView: 'auto',
         loop: true,

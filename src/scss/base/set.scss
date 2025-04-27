@@ -44,6 +44,10 @@ html {
       }
     }
   }
+
+  @media (max-width: 64em) and (min-width: 49.01em) and (min-height: 800px) {
+    font-size: 0.8208335vw;
+  }
 }
 
 body {
@@ -164,6 +168,10 @@ input[type='number'] {
   margin: 0 auto;
 
   width: 189.6rem;
+
+  @media (max-width: 64em) {
+    width: 98%;
+  }
 }
 
 // safari fix
