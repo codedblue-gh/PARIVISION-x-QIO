@@ -4,11 +4,20 @@
 
   text-transform: uppercase;
 
+  @media (max-width: 49em) {
+    padding-top: 12.5rem;
+    padding-bottom: 31rem;
+  }
+
   .news-card {
     overflow: hidden;
 
     &__content {
       min-height: 34.9rem;
+
+      @media (max-width: 49em) {
+        min-height: 34.6rem;
+      }
     }
   }
 
@@ -29,6 +38,11 @@
       mix-blend-mode: normal;
 
       transform: translate(-12rem, -24rem);
+
+      @media (max-width: 49em) {
+        width: 100%;
+        transform: none;
+      }
     }
   }
 
@@ -43,12 +57,20 @@
 
   &__title {
     margin-bottom: 4.8rem;
+
+    @media (max-width: 49em) {
+      margin-bottom: 1rem;
+    }
   }
 
   // .media__head
 
   &__head {
     margin-bottom: 9.8rem;
+
+    @media (max-width: 49em) {
+      margin-bottom: 13.4rem;
+    }
   }
 
   // .media__body
@@ -60,6 +82,12 @@
     flex-direction: column;
     align-items: center;
     row-gap: 3.8rem;
+
+    @media (max-width: 49em) {
+      margin-bottom: 3.6rem;
+
+      row-gap: 4.4rem;
+    }
   }
 
   // .media__list
@@ -70,6 +98,13 @@
     column-gap: 8.7rem;
     row-gap: 9.5rem;
     width: 174.6rem;
+
+    @media (max-width: 49em) {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      row-gap: 11.6rem;
+    }
   }
 
   // .media__item
@@ -83,6 +118,10 @@
     display: inline-flex;
     align-items: center;
     column-gap: 7.8rem;
+
+    @media (max-width: 49em) {
+      column-gap: 9.6rem;
+    }
   }
 
   // .media__controls-btn
@@ -93,6 +132,11 @@
     svg {
       width: 1.8rem;
       height: 1.8rem;
+
+      @media (max-width: 49em) {
+        width: 2rem;
+        height: 2.4rem;
+      }
     }
 
     // .media__controls-btn_prev
@@ -130,6 +174,12 @@
     font: var(--h-xxl);
     text-align: center;
     letter-spacing: 0.6rem;
+
+    @media (max-width: 49em) {
+      letter-spacing: 0.5rem;
+      text-align: right;
+      line-height: 79%;
+    }
   }
 }
 
@@ -157,6 +207,12 @@
     align-items: center;
     height: 70.5rem;
     width: 100%;
+
+    @media (max-width: 49em) {
+      padding-bottom: 1.2rem;
+
+      height: 56rem;
+    }
   }
 
   // .head-media__title
@@ -167,6 +223,10 @@
     font-size: 4.9rem;
     font-family: var(--ff-heading);
     line-height: 100%;
+
+    @media (max-width: 49em) {
+      font-size: 5.8rem;
+    }
   }
 
   // .head-media__link
@@ -206,5 +266,13 @@
     height: 100%;
 
     object-fit: cover;
+  }
+}
+[data-page='media'] {
+  .container {
+    @media (max-width: 49em) {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
   }
 }

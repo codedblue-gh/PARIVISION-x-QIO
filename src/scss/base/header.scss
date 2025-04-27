@@ -53,6 +53,12 @@
     }
   }
 
+  .header__btn {
+    @media (max-width: 49em) {
+      display: none;
+    }
+  }
+
   &__btn {
     position: absolute;
     top: 50%;
@@ -67,10 +73,6 @@
     &.btn {
       min-width: 30rem;
       height: 5.9rem;
-
-      @media (max-width: 49em) {
-        display: none;
-      }
     }
   }
 

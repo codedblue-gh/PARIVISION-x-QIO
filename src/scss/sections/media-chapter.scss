@@ -2,6 +2,19 @@
   padding-top: 9.9rem;
   padding-bottom: 18.3rem;
 
+  @media (max-width: 49em) {
+    padding-top: 12.2rem;
+    padding-bottom: 29.5rem;
+
+    .socials {
+      margin-top: 2rem;
+      margin-left: 0.5rem;
+
+      column-gap: 2.5rem;
+      row-gap: 4rem;
+    }
+  }
+
   // .media-chapter__container
 
   &__container {
@@ -13,6 +26,21 @@
 
   &__title {
     margin-bottom: 4.8rem;
+
+    @media (max-width: 49em) {
+      margin-bottom: 1rem;
+
+      ._mobile-only {
+        display: flex;
+        flex-direction: column;
+        row-gap: 1.2rem;
+
+        > span:nth-child(2) {
+          margin-left: auto;
+          margin-right: 2rem;
+        }
+      }
+    }
   }
 
   // .media-chapter__bg
@@ -27,6 +55,12 @@
     transform: translateX(-1.5rem);
 
     overflow: hidden;
+
+    @media (max-width: 49em) {
+      margin-bottom: 8rem;
+
+      transform: translateX(-2rem);
+    }
 
     &::after {
       content: '';
@@ -43,6 +77,8 @@
         rgba(0, 0, 0, 0) 0%,
         rgba(0, 0, 0, 0.8) 93.18%
       );
+
+      pointer-events: none;
     }
   }
 
@@ -53,6 +89,10 @@
     width: 100%;
 
     object-fit: cover;
+
+    @media (max-width: 49em) {
+      height: 56rem;
+    }
   }
 
   // .media-chapter__play-btn
@@ -77,9 +117,19 @@
       visibility: hidden;
     }
 
+    @media (max-width: 49em) {
+      width: 9rem;
+      height: 9rem;
+    }
+
     svg {
       width: 4.5rem;
       height: 4rem;
+
+      @media (max-width: 49em) {
+        width: 9rem;
+        height: 8rem;
+      }
     }
   }
 
@@ -89,11 +139,21 @@
     display: flex;
     flex-direction: column;
     row-gap: 11rem;
+
+    @media (max-width: 49em) {
+      row-gap: 11rem;
+    }
   }
 
   &__group {
     display: grid;
     grid-template-columns: 11fr 14fr;
+
+    @media (max-width: 49em) {
+      display: flex;
+      flex-direction: column;
+      row-gap: 1rem;
+    }
   }
 
   // .media-chapter__aside
@@ -108,6 +168,11 @@
     line-height: 100%;
     font-weight: 500;
     letter-spacing: 0.15rem;
+
+    @media (max-width: 49em) {
+      font-size: 3.4rem;
+      letter-spacing: 0.01rem;
+    }
   }
 
   // .media-chapter__content
@@ -118,6 +183,10 @@
     display: flex;
     flex-direction: column;
     row-gap: 3rem;
+
+    @media (max-width: 49em) {
+      padding-left: 0;
+    }
   }
 
   // .media-chapter__text
@@ -128,6 +197,17 @@
     font-size: var(--fz-39-hf);
     line-height: 3.9rem;
     font-weight: 500;
+
+    @media (max-width: 49em) {
+      .media-chapter__content & {
+        font-size: 5.4rem;
+        line-height: 5.6rem;
+        letter-spacing: 0.04rem;
+      }
+      &:not(.media-chapter__content &) {
+        font-size: 3.4rem;
+      }
+    }
   }
 
   // .media-chapter__socials

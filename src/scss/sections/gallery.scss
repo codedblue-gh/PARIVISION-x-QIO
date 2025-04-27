@@ -10,6 +10,10 @@
     padding-top: 15rem;
   }
 
+  @media (max-width: 49em) {
+    padding-bottom: 22rem;
+  }
+
   // .gallery__container
 
   &__container {
@@ -24,8 +28,6 @@
   // .gallery__slider
 
   &__slider {
-    transform: translateX(-1.1rem);
-
     .gallery__image {
       @media (min-width: 49.01em) and (max-height: 1240px) {
         &:not(._small-screen &, ._hf &) {
@@ -35,7 +37,7 @@
     }
 
     &.swiper {
-      margin-bottom: 2.5rem;
+      margin-bottom: 2rem;
 
       width: 100dvw;
 
@@ -44,6 +46,12 @@
           margin-bottom: auto;
         }
       }
+    }
+
+    transform: translateX(-2rem);
+
+    @media (min-width: 49.01em) {
+      transform: translateX(-1.1rem);
     }
   }
 
@@ -69,6 +77,10 @@
     height: 88.3rem;
 
     object-fit: cover;
+
+    @media (max-width: 49em) {
+      height: 131.6rem;
+    }
   }
 
   // .gallery__row
@@ -80,9 +92,34 @@
     justify-content: space-between;
     align-items: center;
 
+    @media (max-width: 49em) {
+      margin-bottom: 5rem;
+
+      flex-direction: column;
+      align-items: flex-start;
+      row-gap: 3.2rem;
+
+      .link {
+        font-size: 3.4rem;
+
+        @media (min-width: 49.01em) {
+          text-transform: uppercase;
+        }
+      }
+    }
+
     .link {
       &:first-child {
         column-gap: 1.8rem;
+
+        @media (max-width: 49em) {
+          column-gap: 8rem;
+
+          &::after {
+            flex: 0 0 2rem;
+            width: 2rem;
+          }
+        }
 
         &::after {
           content: var(--i-arr-sm);
@@ -95,6 +132,12 @@
         column-gap: 4.8rem;
 
         transform: translate(0.7rem, -1rem);
+
+        @media (max-width: 49em) {
+          column-gap: 11rem;
+
+          transform: none;
+        }
       }
     }
   }
@@ -122,6 +165,10 @@
   &__controls-btn {
     display: inline-flex;
 
+    @media (max-width: 49em) {
+      display: none;
+    }
+
     svg {
       width: 1.8rem;
       height: 1.8rem;
@@ -144,9 +191,13 @@
   &__thumbs {
     display: flex;
     align-items: flex-end;
-    height: 15.6rem;
+    height: 18.2rem;
 
-    transform: translateY(-4.2rem);
+    @media (min-width: 49.01em) {
+      height: 15.6rem;
+
+      transform: translateY(-4.2rem);
+    }
   }
 
   // .gallery__thumb
@@ -161,8 +212,16 @@
       transform-origin: center;
 
       transition: height 0.4s ease-in-out;
+
+      @media (max-width: 49em) {
+        height: 7.6rem;
+      }
     }
     width: 7.5rem;
+
+    @media (max-width: 49em) {
+      width: 8.8rem;
+    }
 
     &:not(._is-active) {
       opacity: 0.5;
@@ -170,39 +229,93 @@
       &:nth-child(2) {
         .gallery__image {
           height: 8.4rem;
+
+          @media (max-width: 49em) {
+            height: 10rem;
+          }
         }
       }
       &:nth-child(3) {
         .gallery__image {
           height: 9.4rem;
+
+          @media (max-width: 49em) {
+            height: 11rem;
+          }
         }
       }
       &:nth-child(5) {
         .gallery__image {
           height: 11.3rem;
+
+          @media (max-width: 49em) {
+            height: 13.2rem;
+          }
         }
       }
       &:nth-child(6) {
         .gallery__image {
           height: 6.6rem;
+
+          @media (max-width: 49em) {
+            height: 7.6rem;
+          }
         }
       }
       &:nth-child(7) {
         .gallery__image {
           height: 9.5rem;
+
+          @media (max-width: 49em) {
+            height: 11.2rem;
+          }
         }
       }
       &:nth-child(8) {
         .gallery__image {
           height: 4.8rem;
+
+          @media (max-width: 49em) {
+            height: 5.6rem;
+          }
         }
       }
     }
     &._is-active {
       width: 17.6rem;
 
+      @media (max-width: 49em) {
+        width: 20.4rem;
+
+        .gallery__image {
+          height: 18.2rem;
+        }
+      }
+
       .gallery__image {
         height: 15.6rem;
+      }
+    }
+  }
+}
+[data-page='media'] {
+  .lower-info {
+    @media (min-width: 49.01em) {
+      &._mobile-only {
+        display: none;
+      }
+    }
+    @media (max-width: 49em) {
+      .header__btn {
+        height: 11rem;
+        width: 96%;
+
+        .btn__txt {
+          font-size: 2.8rem;
+        }
+        .btn__txt-sm {
+          font-size: 1.6rem;
+        }
       }
     }
   }

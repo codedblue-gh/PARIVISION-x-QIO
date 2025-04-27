@@ -25,7 +25,17 @@
     </header>
     <div class="capsule">
       <div class="wrapper">
-        <main class="main">@@include('html/gallery.htm',{})</main>
+        <main class="main">
+          @@include('html/gallery.htm',{})
+          <div class="lower-info _mobile-only">
+            <button type="button" class="header__btn btn">
+              <span class="btn__group">
+                <span class="btn__txt">SORT</span>
+                <span class="btn__txt-sm">BY MEDIA TYPE</span>
+              </span>
+            </button>
+          </div>
+        </main>
 
         @@include('html/_preloader.htm',{}) @@include('html/_footer.htm',{})
         @@include('html/_svg.htm',{})
