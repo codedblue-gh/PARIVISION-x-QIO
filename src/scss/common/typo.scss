@@ -48,6 +48,11 @@
   @media (max-width: 49em) {
     font-size: var(--fz-56);
   }
+
+  @media (max-width: 64em) and (min-width: 49.01em) {
+    line-height: 109%;
+    font-size: 4.3rem;
+  }
 }
 
 .screen-heading {

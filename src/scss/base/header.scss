@@ -70,6 +70,12 @@
       letter-spacing: -0.1rem;
     }
 
+    @media (max-width: 64em) and (min-width: 49.01em) {
+      [data-page='teams'] & {
+        display: none;
+      }
+    }
+
     &.btn {
       min-width: 30rem;
       height: 5.9rem;
@@ -111,6 +117,14 @@
         margin-right: 16.7rem;
       }
 
+      [data-page='player'] & {
+        margin-right: 14.2rem;
+      }
+
+      [data-page='manifest'] & {
+        margin-right: 8.7rem;
+      }
+
       .set-homepage-css & {
         margin-right: 11.3rem;
       }
@@ -143,6 +157,14 @@
 
         flex: 0 0 10rem;
         width: 10rem;
+      }
+
+      [data-page='player'] & {
+        margin-right: 15rem;
+      }
+
+      [data-page='manifest'] & {
+        margin-right: 17rem;
       }
     }
   }
