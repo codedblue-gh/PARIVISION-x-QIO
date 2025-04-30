@@ -48,6 +48,10 @@
 
   &__title {
     letter-spacing: 0.2rem;
+
+    @media (max-width: 64em) and (min-width: 49.01em) {
+      margin-left: 1rem;
+    }
   }
 
   // .player__aside
@@ -68,7 +72,6 @@
     background: linear-gradient(360deg, #001513 0%, #00665b 100%);
 
     @media (min-width: 64.01em) {
-      flex: 0 0 59.5rem;
       width: 59.5rem;
       height: 69.7rem;
     }
