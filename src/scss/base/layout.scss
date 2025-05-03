@@ -92,8 +92,16 @@ html {
     }
   }
 }
-html,
-.preloader {
+html::before,
+.preloader::before {
+  content: '';
+
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 
   background-image: url(@img/vectors/bg.svg);
   background-position: center var(--y);
@@ -107,7 +115,6 @@ html,
   @media (max-width: 49em) {
     background-image: url(@img/vectors/bg-m.svg);
   }
-
 }
 
 .homepage {
