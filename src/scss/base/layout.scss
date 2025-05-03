@@ -96,12 +96,12 @@ html::before,
 .preloader::before {
   content: '';
 
-  position: fixed;
+  position: absolute;
   z-index: 2;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
+ top: 0;
+ left: 0;
+ width: 100vw;
+ height: 100vh;
 
   background-image: url(@img/vectors/bg.svg);
   background-position: center var(--y);
