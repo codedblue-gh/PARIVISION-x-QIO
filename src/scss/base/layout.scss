@@ -92,20 +92,12 @@ html {
     }
   }
 }
-html::before,
-.preloader::before {
-  content: '';
-
-  position: absolute;
-  z-index: 2;
- top: 0;
- left: 0;
- width: 100vw;
- height: 100vh;
+html,
+.preloader {
 
   background-image: url(@img/vectors/bg.svg);
   background-position: center var(--y);
-  background-size: contain;
+  background-size: cover;
   background-repeat: repeat;
 
   @media (max-width: 64em) and (min-width: 49.01em) {
@@ -115,6 +107,7 @@ html::before,
   @media (max-width: 49em) {
     background-image: url(@img/vectors/bg-m.svg);
   }
+
 }
 
 .homepage {
