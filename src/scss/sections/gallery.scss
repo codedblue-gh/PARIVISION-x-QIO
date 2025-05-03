@@ -193,6 +193,16 @@
     align-items: flex-end;
     height: 18.2rem;
 
+    @media (max-width: 49em) {
+      overflow-x: scroll;
+      width: 100%;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+      &::-webkit-scrollbar {
+        display: none; /* Safari and Chrome */
+      }
+    }
+
     @media (min-width: 49.01em) {
       height: 15.6rem;
 
@@ -203,7 +213,8 @@
   // .gallery__thumb
 
   &__thumb {
-    transition: width 0.4s ease-in-out, opacity 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out, opacity 0.4s ease-in-out,
+      flex 0.4s ease-in-out;
     cursor: pointer;
 
     .gallery__image {
@@ -217,9 +228,11 @@
         height: 7.6rem;
       }
     }
+    flex: 0 0 7.5rem;
     width: 7.5rem;
 
     @media (max-width: 49em) {
+      flex: 0 0 8.8rem;
       width: 8.8rem;
     }
 
@@ -282,9 +295,11 @@
       }
     }
     &._is-active {
+      flex: 0 0 17.6rem;
       width: 17.6rem;
 
       @media (max-width: 49em) {
+        flex: 0 0 20.4rem;
         width: 20.4rem;
 
         .gallery__image {

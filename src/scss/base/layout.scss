@@ -98,7 +98,10 @@ html::before,
 
   position: fixed;
   z-index: 2;
-  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100dvh;
 
   background-image: url(@img/vectors/bg.svg);
   background-position: center var(--y);
@@ -180,6 +183,7 @@ html::before,
     background: url(@img/vectors/2131327187.svg) center / 100% auto no-repeat;
 
     pointer-events: none;
+    transition: opacity 0.4s ease-in-out;
 
     @media (max-width: 64em) and (min-width: 49.01em) {
       background: url(@img/vectors/2131327225.svg) center / 100% auto no-repeat;

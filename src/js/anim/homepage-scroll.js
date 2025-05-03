@@ -1,6 +1,6 @@
 import { isTouchDevice, removeClasses } from '../utils/utils';
 import { timelines, duration } from './timelines';
-import { headings, initLeadersScreenObserver } from './homepage';
+import { headings, initLeadersScreenObserver, itemsTl } from './homepage';
 
 gsap.registerPlugin(Observer);
 
@@ -34,6 +34,8 @@ const scroll = (self, i, deltaY) => {
     document.querySelector(`.${INIT_SCROLL_CLASS}`)
   ) {
     self.disable();
+
+    if (itemsTl.progress() !== 1) itemsTl.reverse();
 
     const prev = sections[i - 1];
     const next = sections[i + 1];

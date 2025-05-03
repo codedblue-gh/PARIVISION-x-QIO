@@ -193,14 +193,13 @@ if (document.querySelector('.set-homepage-css')) {
       },
       onComplete: () => {
         if (!document.querySelector(`.${INIT_SCROLL_CLASS}`)) {
+          initHomepageScroll();
           itemsTl.play();
           itemsTl.then(() => {
-            initHomepageScroll();
-
             setTimeout(() => {
               itemsTl.reverse();
               itemsTl.then(initItemsAnim);
-            }, 2000);
+            }, 700);
           });
         }
       },
