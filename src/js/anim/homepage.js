@@ -38,7 +38,7 @@ export const itemsTl = gsap
     '--opacity': 1,
     '--scale': 1,
     duration: 0.5,
-    stagger: 0.5,
+    stagger: -0.3,
   });
 
 export const initItemsAnim = () => {

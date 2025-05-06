@@ -63,7 +63,6 @@ const showList = (listSelector, item, gap, check = false, callback = false) => {
     listTl.reverse();
     if (sortList) {
       document.documentElement.classList.remove('_show-sort');
-      lenis.start();
     }
   };
   if (callback) {
@@ -88,7 +87,6 @@ const showList = (listSelector, item, gap, check = false, callback = false) => {
       remove();
       return;
     }
-
     if (isTouch || !check) {
       list.classList.toggle('_is-active');
       sortList && document.documentElement.classList.toggle('_show-sort');
@@ -103,11 +101,19 @@ const showList = (listSelector, item, gap, check = false, callback = false) => {
         listTl.play();
         if (sortList) {
           document.documentElement.classList.add('_show-sort');
-          lenis.stop();
         }
       }
     }
   });
+  if (document.querySelector('.header__sort-btn')) {
+    document
+      .querySelector('.header__sort-btn')
+      .addEventListener('click', function () {
+        document.documentElement.classList.add('_show-sort');
+
+        listTl.play();
+      });
+  }
 };
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -118,9 +124,6 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   const onClickHandler = e => {
-    if (e.target.closest('.header__sort-btn') && md.matches) {
-      document.documentElement.classList.add('_show-sort');
-    }
     if (e.target.closest('.header__menu-btn')) {
       document.documentElement.classList.add('_show-menu');
     }
@@ -230,14 +233,17 @@ window.addEventListener('load', function () {
       const inputGroup = inputGroups[i];
 
       inputGroup.addEventListener('change', function ({ target }) {
-        if (inputGroup.checked) {
-          const group = gsap.utils.toArray(`input[name=${target.name}]`);
-          for (let i = 0; i < group.length; i++) {
-            gsap.to(group[i].parentElement, { '--alpha': 1 });
-          }
-
-          gsap.to(inputGroup.parentElement, { '--alpha': 0 });
+        // if (inputGroup.checked) {
+        const group = gsap.utils.toArray(`input[name=${target.name}]`);
+        for (let i = 0; i < group.length; i++) {
+          gsap.to(group[i].parentElement, { '--alpha': +!group[i].checked });
         }
+        if (!group.filter(a => a.checked).length) {
+          for (let i = 0; i < group.length; i++) {
+            gsap.to(group[i].parentElement, { '--alpha': 0 });
+          }
+        }
+        // }
       });
     }
   }
@@ -248,7 +254,7 @@ window.addEventListener('load', function () {
     showList(
       '.header__sort-list .homepage-table__list-item_all',
       '.homepage-table__list-item',
-      1,
+      md.matches ? 2 : 1,
       '',
       () => {
         // document.documentElement.classList.toggle('_show-sort');

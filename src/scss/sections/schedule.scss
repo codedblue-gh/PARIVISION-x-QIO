@@ -207,28 +207,36 @@
 
       @media (max-width: 49em) {
         padding-top: 0.2rem;
-        column-gap: 6.5rem;
+        column-gap: 3.5rem;
         min-width: 43rem;
         max-width: 43rem;
 
         &::before {
-          flex: 0 0 2rem;
-          width: 2rem;
+          flex: 0 0 5.5rem;
+          width: 5.5rem;
           height: 5rem;
         }
       }
 
       @media (max-width: 64em) and (min-width: 49.01em) {
         padding-bottom: 0.5rem;
-        column-gap: 3rem;
+        column-gap: 2rem;
+
+        &::before {
+          flex: 0 0 3.5rem;
+          width: 3.5rem;
+          height: 3rem;
+        }
       }
 
       &::before {
-        content: var(--icon);
+        content: '';
 
         flex: 0 0 2.6rem;
         width: 2.6rem;
         height: 2.6rem;
+
+        background: var(--icon) center / contain no-repeat;
       }
     }
   }
@@ -298,7 +306,6 @@
     @media (max-width: 49em) {
       font-size: 1rem;
       line-height: 1.2rem;
-      transform: translateY(-1rem);
     }
 
     @media (max-width: 64em) and (min-width: 49.01em) {
