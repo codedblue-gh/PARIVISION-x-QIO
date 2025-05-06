@@ -166,9 +166,6 @@ window.addEventListener('load', function () {
   ) {
     document.documentElement.dataset.page =
       document.querySelector('[data-section]').dataset.section;
-    if (document.querySelector('.gallery') && !md.matches) {
-      lenis.stop();
-    }
   } else if (
     document.querySelector('.teams') ||
     document.querySelector('.gallery')

@@ -4,6 +4,57 @@
 
   min-height: 100dvh;
 
+  &[data-section='media'] + .lower-info {
+    .frame-btn__txt {
+      padding: 1.2rem 5.7rem;
+    }
+    .frame-btn__inner {
+      @media (max-width: 64em) and (min-width: 49.01em) {
+        height: 4.3rem;
+      }
+    }
+    .frame-btn__txt {
+      @media (max-width: 64em) and (min-width: 49.01em) {
+        padding: 0.8rem 4rem;
+      }
+      @media (max-width: 49em) {
+        padding: 2.2rem 5.7rem;
+      }
+    }
+    .border {
+      @media (max-width: 64em) and (min-width: 49.01em) {
+        top: 44%;
+        width: 232.5%;
+      }
+    }
+    @media (max-width: 64em) and (min-width: 49.01em) {
+      &::after {
+        content: '';
+        bottom: 0;
+        background: url(@img/vectors/2131327217.svg) center / contain repeat-x;
+        position: absolute;
+        left: 50%;
+
+        width: 102%;
+        height: 2.5rem;
+
+        transform: translate(-50%, 50%);
+      }
+
+      .frame-btn__txt {
+        padding: 0.5rem 4.2rem;
+      }
+      .border {
+        width: 233.5%;
+        height: 128%;
+      }
+    }
+  }
+
+  @media (max-width: 64em) and (min-width: 49.01em) {
+    padding-top: 20.5rem;
+  }
+
   @media (max-width: 49em) {
     padding-top: 13rem;
     padding-bottom: 54rem;
@@ -25,6 +76,10 @@
 
     @media (max-width: 49em) {
       row-gap: 9rem;
+    }
+
+    @media (max-width: 64em) and (min-width: 49.01em) {
+      row-gap: 10.1rem;
     }
   }
 
@@ -53,10 +108,14 @@
     justify-content: space-between;
     grid-template-columns: 98.9rem auto;
 
-    @media (max-width: 49em) {
+    @media (max-width: 64em) {
       display: flex;
       flex-direction: column;
       row-gap: 10.2rem;
+    }
+
+    @media (max-width: 64em) and (min-width: 49.01em) {
+      row-gap: 10.6rem;
     }
   }
 
@@ -71,15 +130,23 @@
       font-size: 5.5rem;
       line-height: 5.6rem;
     }
+
+    @media (max-width: 64em) and (min-width: 49.01em) {
+      max-width: 104rem;
+      font-size: 4.3rem;
+      line-height: 100%;
+    }
   }
 
   // .guidelines__list
 
   &__list {
+    padding-top: 0.5rem;
     display: flex;
     flex-direction: column;
+    row-gap: 2.6rem;
 
-    @media (min-width: 49.01em) {
+    @media (min-width: 64.01em) {
       min-width: 14.5rem;
 
       transform: translateX(0.6rem);
@@ -87,6 +154,12 @@
 
     @media (max-width: 49em) {
       row-gap: 1.2rem;
+    }
+
+    @media (max-width: 64em) and (min-width: 49.01em) {
+      min-width: 18rem;
+      margin-right: auto;
+      row-gap: 3.5rem;
     }
   }
 

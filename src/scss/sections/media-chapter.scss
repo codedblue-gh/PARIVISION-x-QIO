@@ -27,8 +27,16 @@
   &__title {
     margin-bottom: 4.8rem;
 
+    ._mobile-only {
+      display: none;
+    }
+
     @media (max-width: 49em) {
       margin-bottom: 1rem;
+
+      ._desktop-only {
+        display: none;
+      }
 
       ._mobile-only {
         display: flex;
