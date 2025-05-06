@@ -387,7 +387,8 @@
     }
   }
 }
-[data-page='manifest'] {
+[data-page='manifest'],
+[data-page='schedule'] {
   @media (min-width: 64.01em) {
     .lower-info {
       bottom: 2.5rem;

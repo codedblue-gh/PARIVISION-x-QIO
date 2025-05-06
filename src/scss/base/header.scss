@@ -25,11 +25,50 @@
     transition: opacity 0.7s ease-in-out, visibility 0.7s ease-in-out;
   }
 
-  &:not(._show-menu &) {
+  &:not(._show-menu &, ._show-sort &) {
     &::after {
       opacity: 0;
       visibility: hidden;
       transition-delay: 0.7s;
+    }
+  }
+  ._show-sort & {
+    &::after {
+      transition-delay: 0s;
+    }
+  }
+
+  &__sort-btn {
+    @media (min-width: 49.01em) {
+      display: none;
+    }
+  }
+
+  &__sort-list {
+    z-index: 5;
+
+    ._show-menu & {
+      z-index: 2;
+    }
+
+    @media (max-width: 49em) {
+      position: absolute;
+      top: 2.2rem;
+      left: 50%;
+
+      &.homepage-table__list {
+        width: 98%;
+      }
+
+      opacity: 0;
+      visibility: hidden;
+      transform: translateX(-50%);
+      transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out;
+
+      ._show-sort & {
+        opacity: 1;
+        visibility: visible;
+      }
     }
   }
 
@@ -122,6 +161,10 @@
       }
 
       [data-page='manifest'] & {
+        margin-right: 8.7rem;
+      }
+
+      [data-page='schedule'] & {
         margin-right: 8.7rem;
       }
 
@@ -282,17 +325,36 @@
 
   // .header__menu-btn
 
+  &__sort-btn,
   &__menu-btn {
-    padding: 0.65rem 0.9rem;
-
-    border-radius: 0.4rem;
-
     font: var(--txt-medium-hf);
     letter-spacing: 0.02rem;
     color: var(--c-bg);
     text-transform: uppercase;
 
     background-color: var(--c-primary);
+  }
+
+  &__sort-btn {
+    margin-left: auto;
+    margin-right: 0.5rem;
+    padding: 0.9rem 1.1rem;
+    margin-top: 0.4rem;
+
+    min-width: 8.5rem;
+    border-radius: 0.8rem;
+  }
+
+  &__menu-btn {
+    padding: 0.65rem 0.9rem;
+
+    border-radius: 0.4rem;
+
+    @media (min-width: 64.01em) {
+      [data-page='schedule'] & {
+        transform: translateY(-0.5rem);
+      }
+    }
 
     @media (max-width: 64em) and (min-width: 49.01em) {
       padding: 1rem 1.5rem;
