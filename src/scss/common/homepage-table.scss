@@ -239,11 +239,19 @@
     --opacity: 0;
     --scale: 0.8;
 
-    &:not(:last-child, &_all .header__sort-list &, .homepage-table__sublist &),
+    &:not(:last-child, .homepage-table__sublist &),
     &_sublist {
       margin-bottom: var(--mb);
       opacity: var(--opacity);
       transform: scale(var(--scale));
+    }
+
+    &_all {
+      .header__sort-list & {
+        --mb: 0;
+        --opacity: 1;
+        --scale: 1;
+      }
     }
   }
 }

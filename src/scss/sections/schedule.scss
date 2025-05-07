@@ -205,6 +205,8 @@
       min-width: 18rem;
       max-width: 18rem;
 
+      background-size: 0;
+
       @media (max-width: 49em) {
         padding-top: 0.2rem;
         column-gap: 3.5rem;
@@ -212,6 +214,7 @@
         max-width: 43rem;
 
         &::before {
+          margin-bottom: 0.6rem;
           flex: 0 0 5.5rem;
           width: 5.5rem;
           height: 5rem;
@@ -236,7 +239,10 @@
         width: 2.6rem;
         height: 2.6rem;
 
-        background: var(--icon) center / contain no-repeat;
+        background-image: inherit;
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
       }
     }
   }
