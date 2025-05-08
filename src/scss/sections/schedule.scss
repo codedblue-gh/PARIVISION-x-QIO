@@ -275,6 +275,17 @@
     height: 10rem;
   }
 
+  @media (min-width: 49.01em) {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+  }
+  @media (max-width: 49em) {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+  }
+
   // .banner__image-wrap
 
   &__image-wrap,
