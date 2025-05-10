@@ -141,7 +141,7 @@
       width: 7.6rem;
 
       [data-page='news'] & {
-        margin-right: 9.7rem;
+        margin-right: 17.7rem;
       }
 
       [data-page='shop'] & {
@@ -193,7 +193,7 @@
       [data-current-section='teams'] & {
         margin-right: 15.5rem;
       }
-      [data-current-section='news'] &,
+
       [data-current-section='links'] & {
         margin-right: 17rem;
       }
@@ -207,6 +207,10 @@
 
         flex: 0 0 10rem;
         width: 10rem;
+      }
+
+      [data-page='news'] & {
+        margin-right: 10rem;
       }
 
       [data-page='player'] & {

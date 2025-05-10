@@ -1,24 +1,6 @@
 .leaders {
   --opacity: 0;
 
-  @media (min-width: 49.01em) {
-    &::before {
-      content: '';
-
-      position: absolute;
-      z-index: 4;
-      top: 9.4rem;
-      left: 0;
-
-      width: 100%;
-      height: 2.9rem;
-
-      background: url(@img/vectors/2131327191.svg) center / cover repeat;
-
-      opacity: var(--opacity);
-    }
-  }
-
   // .leaders__container
 
   &__container {
@@ -265,34 +247,6 @@
         rgba(0, 0, 0, 0) 34.05%,
         rgba(0, 0, 0, 1) 78.06%
       );
-    }
-  }
-
-  // .leaders__arr-btn
-
-  &__arr-btn {
-    position: absolute;
-    top: 45.9%;
-
-    transform: translateY(-50%);
-
-    @media (max-width: 49em) {
-      display: none;
-    }
-
-    &_prev {
-      left: 0;
-
-      transform: translateY(-50%) rotate(180deg);
-    }
-
-    &_next {
-      right: 0;
-    }
-
-    svg {
-      width: 2.1rem;
-      height: 1.8rem;
     }
   }
 

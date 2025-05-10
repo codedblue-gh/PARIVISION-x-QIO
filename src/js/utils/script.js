@@ -54,6 +54,7 @@ const showList = (listSelector, item, gap, check = false, callback = false) => {
     {
       '--mb': `${gap}rem`,
       '--opacity': 1,
+      '--visibility': 'visible',
       '--scale': 1,
       duration: 0.5,
       stagger: 0.2,
@@ -65,6 +66,15 @@ const showList = (listSelector, item, gap, check = false, callback = false) => {
       document.documentElement.classList.remove('_show-sort');
     }
   };
+  const clear = () => {
+    if (sortList && md.matches) {
+      remove();
+      return;
+    }
+
+    remove();
+    list.classList.remove('_is-active');
+  };
   if (callback) {
     document.addEventListener('click', function (e) {
       if (
@@ -72,17 +82,20 @@ const showList = (listSelector, item, gap, check = false, callback = false) => {
         !e.target.closest('.header__sort-list') &&
         !e.target.closest('.header__sort-btn')
       ) {
-        if (sortList && md.matches) {
-          remove();
-          return;
-        }
-
-        remove();
-        list.classList.remove('_is-active');
+        clear();
+      }
+    });
+  } else {
+    document.addEventListener('click', function (e) {
+      if (
+        !e.target.closest('.sort._is-active') &&
+        !e.target.closest('.tags-list')
+      ) {
+        clear();
       }
     });
   }
-  list.addEventListener('click', function () {
+  list.addEventListener('click', function (e) {
     if (sortList && md.matches) {
       remove();
       return;
@@ -96,7 +109,7 @@ const showList = (listSelector, item, gap, check = false, callback = false) => {
       }
 
       if (!list.classList.contains('_is-active')) {
-        remove();
+        listSelector !== '.sort' && remove();
       } else {
         listTl.play();
         if (sortList) {
@@ -113,6 +126,14 @@ const showList = (listSelector, item, gap, check = false, callback = false) => {
 
         listTl.play();
       });
+  }
+  if (listSelector === '.sort') {
+    list.addEventListener('mouseover', function () {
+      if (!isTouch && window.innerWidth > 1024) listTl.play();
+    });
+    list.addEventListener('mouseout', function () {
+      if (!isTouch && window.innerWidth > 1024) listTl.reverse();
+    });
   }
 };
 
@@ -212,22 +233,26 @@ window.addEventListener('load', function () {
   }
 
   if (document.querySelector('.sort')) {
-    showList('.sort', '.tags-list__item', 2, true);
-
-    list.addEventListener('mouseover', function () {
-      if (!isTouch) listTl.play();
-    });
-    list.addEventListener('mouseout', function () {
-      if (!isTouch) listTl.reverse();
-    });
+    showList(
+      '.sort',
+      '.tags-list__item',
+      window.innerWidth <= 1024 ? 2 : 1,
+      true
+    );
   }
 
   resizeNsScreen();
   initWatchTimer();
   initVideos();
 
-  if (document.querySelector('.list-item-homepage-table__input')) {
-    const inputGroups = gsap.utils.toArray('.list-item-homepage-table__input');
+  if (
+    document.querySelector(
+      '.list-item-homepage-table__input, .tags-list__input'
+    )
+  ) {
+    const inputGroups = gsap.utils.toArray(
+      '.list-item-homepage-table__input, .tags-list__input'
+    );
 
     for (let i = 0; i < inputGroups.length; i++) {
       const inputGroup = inputGroups[i];

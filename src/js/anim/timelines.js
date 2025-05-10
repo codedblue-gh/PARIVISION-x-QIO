@@ -25,11 +25,13 @@ const sectionContacts = document.querySelector('[data-section="contacts"]');
 const sectionLinks = document.querySelector('[data-section="links"]');
 
 const hideLoader = () => {
-  document.querySelectorAll('.preloader__progress') &&
-    document.querySelectorAll('.preloader__progress').forEach(el => {
-      el.textContent = 100;
-    });
-  tlPreloaderLeave.play();
+  setTimeout(() => {
+    document.querySelectorAll('.preloader__progress') &&
+      document.querySelectorAll('.preloader__progress').forEach(el => {
+        el.textContent = 100;
+      });
+    tlPreloaderLeave.play();
+  }, 2000);
 };
 
 if (document.querySelector('._page-loaded')) {
